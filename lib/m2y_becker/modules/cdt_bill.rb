@@ -20,7 +20,7 @@ module M2yBecker
     end 
 
 
-    # FATURA DETALHADA VEM AQUI 
+    # FATURA DETALHADA VEM AQUI (ADICIONAR)
     
     def findBillPDF(id, id_bill)
       @id_bill = id_bill
