@@ -22,5 +22,6 @@ module M2yBecker
   HISTORY_PATH = "/historico"
   CUSTOMER_ID_PATH = "/api/api/v3/portadores/consulta-cliente-id?id="
 
+  
 
 end
