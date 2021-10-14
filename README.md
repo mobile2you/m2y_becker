@@ -41,3 +41,10 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the M2yBecker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/m2y_becker/blob/master/CODE_OF_CONDUCT.md).
+
+
+## Doc
+
+find Card
+
+{"id":20,"idStatusCartao":null,"idEstagioCartao":null,"idConta":20,"idCliente":20,"idProduto":null,"tipoPortador":"T","numeroCartao":"6516XXXXXXXX0041","nomeImpresso":"JACO F SILVA","dataGeracao":"2019-12-23T17:23:22.000Z","dataStatusCartao":null,"dataEstagioCartao":null,"dataValidade":"2024-12-23T00:00:00.000Z","dataImpressao":"2019-12-23T17:23:22.000Z","arquivoImpressao":null,"flagImpressaoOrigemComercial":null,"flagProvisorio":1,"codigoDesbloqueio":null,"tipoCartao":"P"}

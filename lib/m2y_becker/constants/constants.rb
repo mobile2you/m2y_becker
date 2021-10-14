@@ -15,8 +15,12 @@ module M2yBecker
 
   API = "api/"
   TOKEN_PATH = "autenticacao/tokens"
-  
-
   CARD_PATH = "api/api/v3/cartoes/"
+  GROUPS_PATH = "autenticacao/grupos"
+
+  USERS_PATH = "api/api/v3/portadores/"
+  HISTORY_PATH = "/historico"
+  CUSTOMER_ID_PATH = "/api/api/v3/portadores/consulta-cliente-id?id="
+
 
 end

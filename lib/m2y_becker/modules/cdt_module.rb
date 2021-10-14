@@ -2,7 +2,7 @@ module M2yBecker
 
   class CdtModule
 
-    def startModule(user, pass, env)
+    def initialize(user, pass, env)
       @auth = CdtAuth.new(user, pass, env)
       @user = user
       @pass = pass
