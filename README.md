@@ -483,6 +483,8 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
     "tarifaJurosRotativo": 9,
     "itemArquivoCobranca": null,
     "encargosMaximos": 0
+
+    
 }
 
 ```
