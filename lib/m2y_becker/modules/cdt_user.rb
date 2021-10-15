@@ -8,5 +8,10 @@ module M2yBecker
       CdtModel.new(response)
     end
 
+    def findCpf(cpf_user)
+      response = @request.get(@url + QUERY_CPF_PATH + "cpf=#{cpf_user.to_s})"
+      CdtModel.new(response)
+    end
+
   end
 end
