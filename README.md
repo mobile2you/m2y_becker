@@ -298,14 +298,10 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 }
 ```
 
-**CdtBill.findDetailBill(30):**
 ```json
 
-
-
-
 ```
-**CdtBill.findBillPDF(100,347):**
+**CdtBill.findBillPDF(100,347), CdtBill.findDetailBill(100,347):**
 ```json
 
 {
@@ -357,50 +353,6 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
         "descricaoContaBancariaProximoCiclo": ""
     },
     {
-        "id": 16,
-        "diaCorte": 24,
-        "diaVencimento": 5,
-        "descricao": "VENCIMENTO 05",
-        "ativo": "S",
-        "corteUltimoDiaMes": "N",
-        "diasCarencia": 0,
-        "descricaoContaBancariaCicloAtual": "",
-        "descricaoContaBancariaProximoCiclo": ""
-    },
-    {
-        "id": 17,
-        "diaCorte": 0,
-        "diaVencimento": 10,
-        "descricao": "VENCIMENTO 10",
-        "ativo": "S",
-        "corteUltimoDiaMes": "S",
-        "diasCarencia": 0,
-        "descricaoContaBancariaCicloAtual": "",
-        "descricaoContaBancariaProximoCiclo": ""
-    },
-    {
-        "id": 18,
-        "diaCorte": 4,
-        "diaVencimento": 9,
-        "descricao": "VENCIMENTO 09",
-        "ativo": "N",
-        "corteUltimoDiaMes": "N",
-        "diasCarencia": 0,
-        "descricaoContaBancariaCicloAtual": "",
-        "descricaoContaBancariaProximoCiclo": ""
-    },
-    {
-        "id": 19,
-        "diaCorte": 9,
-        "diaVencimento": 20,
-        "descricao": "VENCIMENTO 20",
-        "ativo": "S",
-        "corteUltimoDiaMes": "N",
-        "diasCarencia": 0,
-        "descricaoContaBancariaCicloAtual": "",
-        "descricaoContaBancariaProximoCiclo": ""
-    },
-    {
         "id": 20,
         "diaCorte": 5,
         "diaVencimento": 15,
@@ -410,5 +362,5 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
         "diasCarencia": 0,
         "descricaoContaBancariaCicloAtual": "",
         "descricaoContaBancariaProximoCiclo": ""
-    }
+    },
 ]
