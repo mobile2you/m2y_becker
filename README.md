@@ -334,7 +334,6 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 
     
 }
-
 ```
 
 **CdtCycle.findCycle():**
@@ -364,3 +363,35 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
         "descricaoContaBancariaProximoCiclo": ""
     },
 ]
+
+```
+
+**CdtQueryUser.findCpf(92539955053),  CdtQueryUser.findId(92539955053):**
+```json
+
+{
+    "clientes": [
+        {
+            "idCliente": 100,
+            "numeroCartao": "650596XXXXXX8925",
+            "descricaoProduto": "CARTAO BECKER ELO MAIS",
+            "codigoProduto": 15,
+            "permiteRegistrarBoletoOnline": true,
+            "campoAuxiliar1": null,
+            "dadosBancarios": null,
+            "rendas": [
+                {
+                    "id": 99,
+                    "valor": 4500.0,
+                    "comprovada": "N",
+                    "idPessoa": 100,
+                    "principal": null,
+                    "origem": null
+                }
+            ],
+            "estadoCivil": "Solteiro",
+            "conjuge": null,
+            "transicaoBandeira": "I"
+        }
+    ]
+}
