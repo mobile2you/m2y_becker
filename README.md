@@ -366,7 +366,7 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 
 ```
 
-**CdtQueryUser.findCpf(92539955053),  CdtQueryUser.findId(92539955053):**
+**CdtQueryCpf.findCpf(92539955053):**
 ```json
 
 {
