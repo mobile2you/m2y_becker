@@ -9,9 +9,9 @@ module M2yBecker
 
     # Alterar ciclos 
 
-    def changeCycle(idCartao, idCiclo, id)
+    def changeCycle(idCartao, idCiclo)
       body = {:idciclovencimento => idCiclo}
-      response = @request.patch(@url + USERS_PATH + id.to_s + CHANGECYCLE_PATH + idCartao.to_s, body)
+      response = @request.patch(@url + USERS_PATH + idCartao.to + CHANGECYCLE_PATH + idCiclo.to_s, body)
       CdtModel.new(response)
     end 
   end
