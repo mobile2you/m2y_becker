@@ -8,10 +8,20 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def findCpf(cpf_user)
+    def findUserCpf(cpf_user)
       response = @request.get(@url + QUERY_CPF_PATH + "cpf=#{cpf_user.to_s})"
       CdtModel.new(response)
     end
 
+    
+    # Alterar Portadores 
+    def ChangeUser(idCartao,id)
+      response = @request.patch(@url + USERS_PATH + "id?id_fatura=#{idCartao.to_s}")
+      CdtModel.new(response)
+      
+    end 
+
   end
 end
+
+
