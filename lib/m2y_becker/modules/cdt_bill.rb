@@ -12,16 +12,20 @@ module M2yBecker
       CdtModel.new(response)
     end 
 
-    def findPeriodBill(id)
-      @start_date= "data-inicial=1990-01-18&"
-      @end_date = "data-final=2021-01-01"
-      response = @request.get(@url + USERS_PATH + id.to_s + PERIOD_BILL + @start_date + @end_date ) 
+    def findPeriodBill(id,start_date, end_date)
+      response = @request.get(@url + USERS_PATH + id.to_s + PERIOD_BILL + "data-inicial=#{start_date.to_s}&" + "data-final=#{end_date.to_s}" ) 
       CdtModel.new(response)
     end 
 
 
-    # FATURA DETALHADA VEM AQUI (ADICIONAR)
-    
+    # FATURA DETALHADA 
+    def findBillPDF(id, id_bill)
+      @id_bill = id_bill
+      response = @request.get(@url + USERS_PATH + id.to_s + DETAIL_BILL + "id_fatura=#{@id_bill.to_s}") 
+      CdtModel.new(response)
+    end 
+
+    # FATURA PDF  
     def findBillPDF(id, id_bill)
       @id_bill = id_bill
       response = @request.get(@url + USERS_PATH + id.to_s + DETAIL_BILL + "id_fatura=#{@id_bill.to_s}") 

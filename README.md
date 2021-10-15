@@ -262,51 +262,6 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
             "numeroCartaoTruncado": null,
             "nsu": null
         },
-        {
-            "dataLancamento": "2021-09-16T17:07:04.000-0300",
-            "descricaoLancamento": "LOJA 001 4 / 4",
-            "valor": 54.61,
-            "tipo": "VENDA",
-            "dataTransacao": "2021-06-16T17:07:04.000-0300",
-            "tipoProprietario": "TITULAR",
-            "moedaOrigem": null,
-            "valorMoedaOrigem": null,
-            "valorDolar": null,
-            "cotacaoDolar": null,
-            "codigoISO": null,
-            "numeroCartaoTruncado": "655005XXXXXX0179",
-            "nsu": null
-        },
-        {
-            "dataLancamento": "2021-10-01T01:43:57.000-0300",
-            "descricaoLancamento": "MULTA",
-            "valor": 4.07,
-            "tipo": "ROLAGEM",
-            "dataTransacao": "2021-10-01T01:43:57.000-0300",
-            "tipoProprietario": "TITULAR",
-            "moedaOrigem": null,
-            "valorMoedaOrigem": null,
-            "valorDolar": null,
-            "cotacaoDolar": null,
-            "codigoISO": null,
-            "numeroCartaoTruncado": null,
-            "nsu": null
-        },
-        {
-            "dataLancamento": "2021-10-01T01:43:57.000-0300",
-            "descricaoLancamento": "ENCARGOS POR ATRASO",
-            "valor": 82.56,
-            "tipo": "ROLAGEM",
-            "dataTransacao": "2021-10-01T01:43:57.000-0300",
-            "tipoProprietario": "TITULAR",
-            "moedaOrigem": null,
-            "valorMoedaOrigem": null,
-            "valorDolar": null,
-            "cotacaoDolar": null,
-            "codigoISO": null,
-            "numeroCartaoTruncado": null,
-            "nsu": null
-        },
     ],
     "dataVencimento": "2021-10-10T00:00:00.000-0300",
     "valorTotal": 742.6,
@@ -332,116 +287,6 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
             "status": "PASSADA",
             "faturaDisponivel": true
         },
-        {
-            "idFatura": "91",
-            "dataVencimento": "2020-02-10T03:00:00.000+0000",
-            "valorTotal": 160.63,
-            "valorMinimo": 48.19,
-            "valorPagamentosEfetuados": 160.63,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "138",
-            "dataVencimento": "2020-03-10T03:00:00.000+0000",
-            "valorTotal": 170.9,
-            "valorMinimo": 51.27,
-            "valorPagamentosEfetuados": 170.9,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "405",
-            "dataVencimento": "2020-07-10T03:00:00.000+0000",
-            "valorTotal": 49.23,
-            "valorMinimo": 49.23,
-            "valorPagamentosEfetuados": 49.23,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "7469",
-            "dataVencimento": "2020-10-10T03:00:00.000+0000",
-            "valorTotal": 383.28,
-            "valorMinimo": 213.53,
-            "valorPagamentosEfetuados": 383.28,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "185",
-            "dataVencimento": "2020-04-10T03:00:00.000+0000",
-            "valorTotal": 129.37,
-            "valorMinimo": 38.81,
-            "valorPagamentosEfetuados": 129.37,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "236",
-            "dataVencimento": "2020-05-10T03:00:00.000+0000",
-            "valorTotal": 49.28,
-            "valorMinimo": 49.28,
-            "valorPagamentosEfetuados": 49.28,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "287",
-            "dataVencimento": "2020-06-10T03:00:00.000+0000",
-            "valorTotal": 92.53,
-            "valorMinimo": 62.22,
-            "valorPagamentosEfetuados": 92.53,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "1250",
-            "dataVencimento": "2020-08-10T03:00:00.000+0000",
-            "valorTotal": 352.63,
-            "valorMinimo": 174.1,
-            "valorPagamentosEfetuados": 352.63,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "4113",
-            "dataVencimento": "2020-09-10T03:00:00.000+0000",
-            "valorTotal": 355.54,
-            "valorMinimo": 205.21,
-            "valorPagamentosEfetuados": 355.54,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "24235",
-            "dataVencimento": "2020-12-10T03:00:00.000+0000",
-            "valorTotal": 321.43,
-            "valorMinimo": 217.9,
-            "valorPagamentosEfetuados": 321.43,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        },
-        {
-            "idFatura": "12370",
-            "dataVencimento": "2020-11-10T03:00:00.000+0000",
-            "valorTotal": 301.51,
-            "valorMinimo": 189,
-            "valorPagamentosEfetuados": 301.51,
-            "devedor": 0,
-            "status": "PASSADA",
-            "faturaDisponivel": true
-        }
     ],
     "limitePrincipal": 2000.00,
     "limiteParcelado": 0,
@@ -453,6 +298,13 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 }
 ```
 
+**CdtBill.findDetailBill(30):**
+```json
+
+
+
+
+```
 **CdtBill.findBillPDF(100,347):**
 ```json
 
