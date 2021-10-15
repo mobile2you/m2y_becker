@@ -218,3 +218,345 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
     "senhaExpirada": true
 }
 ```
+**CdtBill.findCurrentBill(30):**
+```json
+
+{
+    "lancamentos": [
+        {
+            "dataLancamento": "2021-10-09T00:00:00.000-0300",
+            "descricaoLancamento": "MLP CORINTHIANS 4 / 4 - Venda",
+            "valor": 47.25,
+            "tipo": "ELO",
+            "dataTransacao": "2021-10-09T00:00:00.000-0300",
+            "tipoProprietario": null,
+            "moedaOrigem": null,
+            "valorMoedaOrigem": 188.99,
+            "valorDolar": null,
+            "cotacaoDolar": null,
+            "codigoISO": 8999,
+            "numeroCartaoTruncado": "655005XXXXXX0179",
+            "nsu": "108512475110"
+        }
+    ],
+    "valorTotalFaturaAtual": 789.85
+}
+```
+
+**CdtBill.findCloseBill(30):**
+```json
+{
+    "lancamentos": [
+        {
+            "dataLancamento": "2021-09-10T00:00:00.000-0300",
+            "descricaoLancamento": "TOTAL DA FATURA ANTERIOR",
+            "valor": 554.11,
+            "tipo": "FATURA_ANTERIOR",
+            "dataTransacao": "2021-08-31T00:00:00.000-0300",
+            "tipoProprietario": "TITULAR",
+            "moedaOrigem": null,
+            "valorMoedaOrigem": null,
+            "valorDolar": null,
+            "cotacaoDolar": null,
+            "codigoISO": null,
+            "numeroCartaoTruncado": null,
+            "nsu": null
+        },
+        {
+            "dataLancamento": "2021-09-16T17:07:04.000-0300",
+            "descricaoLancamento": "LOJA 001 4 / 4",
+            "valor": 54.61,
+            "tipo": "VENDA",
+            "dataTransacao": "2021-06-16T17:07:04.000-0300",
+            "tipoProprietario": "TITULAR",
+            "moedaOrigem": null,
+            "valorMoedaOrigem": null,
+            "valorDolar": null,
+            "cotacaoDolar": null,
+            "codigoISO": null,
+            "numeroCartaoTruncado": "655005XXXXXX0179",
+            "nsu": null
+        },
+        {
+            "dataLancamento": "2021-10-01T01:43:57.000-0300",
+            "descricaoLancamento": "MULTA",
+            "valor": 4.07,
+            "tipo": "ROLAGEM",
+            "dataTransacao": "2021-10-01T01:43:57.000-0300",
+            "tipoProprietario": "TITULAR",
+            "moedaOrigem": null,
+            "valorMoedaOrigem": null,
+            "valorDolar": null,
+            "cotacaoDolar": null,
+            "codigoISO": null,
+            "numeroCartaoTruncado": null,
+            "nsu": null
+        },
+        {
+            "dataLancamento": "2021-10-01T01:43:57.000-0300",
+            "descricaoLancamento": "ENCARGOS POR ATRASO",
+            "valor": 82.56,
+            "tipo": "ROLAGEM",
+            "dataTransacao": "2021-10-01T01:43:57.000-0300",
+            "tipoProprietario": "TITULAR",
+            "moedaOrigem": null,
+            "valorMoedaOrigem": null,
+            "valorDolar": null,
+            "cotacaoDolar": null,
+            "codigoISO": null,
+            "numeroCartaoTruncado": null,
+            "nsu": null
+        },
+    ],
+    "dataVencimento": "2021-10-10T00:00:00.000-0300",
+    "valorTotal": 742.6,
+    "valorMinimo": 623.26,
+    "linhaDigitavel": "",
+    "codigoDeBarras": "",
+    "possuiPagamentoMinimo": false,
+    "hashFatura": "ec7a9beea6ebbf2b79c96ecd374edb9169254c9f6d579b697dc144a84fce24d7"
+}
+```
+**CdtBill.findPeriodBill(30):**
+```json
+
+{
+    "faturasResponse": [
+        {
+            "idFatura": "42",
+            "dataVencimento": "2019-12-10T03:00:00.000+0000",
+            "valorTotal": 0,
+            "valorMinimo": 0,
+            "valorPagamentosEfetuados": 0,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "91",
+            "dataVencimento": "2020-02-10T03:00:00.000+0000",
+            "valorTotal": 160.63,
+            "valorMinimo": 48.19,
+            "valorPagamentosEfetuados": 160.63,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "138",
+            "dataVencimento": "2020-03-10T03:00:00.000+0000",
+            "valorTotal": 170.9,
+            "valorMinimo": 51.27,
+            "valorPagamentosEfetuados": 170.9,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "405",
+            "dataVencimento": "2020-07-10T03:00:00.000+0000",
+            "valorTotal": 49.23,
+            "valorMinimo": 49.23,
+            "valorPagamentosEfetuados": 49.23,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "7469",
+            "dataVencimento": "2020-10-10T03:00:00.000+0000",
+            "valorTotal": 383.28,
+            "valorMinimo": 213.53,
+            "valorPagamentosEfetuados": 383.28,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "185",
+            "dataVencimento": "2020-04-10T03:00:00.000+0000",
+            "valorTotal": 129.37,
+            "valorMinimo": 38.81,
+            "valorPagamentosEfetuados": 129.37,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "236",
+            "dataVencimento": "2020-05-10T03:00:00.000+0000",
+            "valorTotal": 49.28,
+            "valorMinimo": 49.28,
+            "valorPagamentosEfetuados": 49.28,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "287",
+            "dataVencimento": "2020-06-10T03:00:00.000+0000",
+            "valorTotal": 92.53,
+            "valorMinimo": 62.22,
+            "valorPagamentosEfetuados": 92.53,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "1250",
+            "dataVencimento": "2020-08-10T03:00:00.000+0000",
+            "valorTotal": 352.63,
+            "valorMinimo": 174.1,
+            "valorPagamentosEfetuados": 352.63,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "4113",
+            "dataVencimento": "2020-09-10T03:00:00.000+0000",
+            "valorTotal": 355.54,
+            "valorMinimo": 205.21,
+            "valorPagamentosEfetuados": 355.54,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "24235",
+            "dataVencimento": "2020-12-10T03:00:00.000+0000",
+            "valorTotal": 321.43,
+            "valorMinimo": 217.9,
+            "valorPagamentosEfetuados": 321.43,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        },
+        {
+            "idFatura": "12370",
+            "dataVencimento": "2020-11-10T03:00:00.000+0000",
+            "valorTotal": 301.51,
+            "valorMinimo": 189,
+            "valorPagamentosEfetuados": 301.51,
+            "devedor": 0,
+            "status": "PASSADA",
+            "faturaDisponivel": true
+        }
+    ],
+    "limitePrincipal": 2000.00,
+    "limiteParcelado": 0,
+    "saldoDisponivel": 1210.15,
+    "saldoReservado": 0.0,
+    "saldoDisponivelParcelado": 0,
+    "devedorTotal": 789.85,
+    "devedorParcelado": 0
+}
+```
+
+**CdtBill.findBillPDF(100,347):**
+```json
+
+{
+    "idFatura": "347",
+    "nomeCartao": "ALESSANDRO FERST WALTER",
+    "numeroCartaoTruncado": "6505XXXXXXXX4184",
+    "diaDeCorte": 0,
+    "status": "INATIVA",
+    "dataVencimento": "2020-06-10T03:00:00.000+0000",
+    "lancamentos": [],
+    "valorTotalFaturaAnterior": 0,
+    "valorPagoFaturaAnterior": 0,
+    "valorLancamentosFaturaAtual": 0,
+    "valorTotalFaturaAtual": 0,
+    "valorPagamentoMinimoFaturaAtual": 0,
+    "limiteRotativo": 3600.00,
+    "limiteParcelado": 0,
+    "devedorRotativo": 556.7,
+    "devedorParcelado": 0,
+    "saldoDisponivelRotativo": 3043.30,
+    "saldoReservado": 0.0,
+    "saldoDisponivelParcelado": 0,
+    "totalPrincipalFatura": 0,
+    "totalTaxasFatura": 0,
+    "totalEncargosFatura": 0,
+    "melhorDiaCompra": 1,
+    "tarifaJurosRotativo": 9,
+    "itemArquivoCobranca": null,
+    "encargosMaximos": 0
+
+    
+}
+
+```
+
+**CdtCycle.findCycle():**
+```json
+
+[
+    {
+        "id": 15,
+        "diaCorte": 21,
+        "diaVencimento": 1,
+        "descricao": "VENCIMENTO 01",
+        "ativo": "S",
+        "corteUltimoDiaMes": "N",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    },
+    {
+        "id": 16,
+        "diaCorte": 24,
+        "diaVencimento": 5,
+        "descricao": "VENCIMENTO 05",
+        "ativo": "S",
+        "corteUltimoDiaMes": "N",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    },
+    {
+        "id": 17,
+        "diaCorte": 0,
+        "diaVencimento": 10,
+        "descricao": "VENCIMENTO 10",
+        "ativo": "S",
+        "corteUltimoDiaMes": "S",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    },
+    {
+        "id": 18,
+        "diaCorte": 4,
+        "diaVencimento": 9,
+        "descricao": "VENCIMENTO 09",
+        "ativo": "N",
+        "corteUltimoDiaMes": "N",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    },
+    {
+        "id": 19,
+        "diaCorte": 9,
+        "diaVencimento": 20,
+        "descricao": "VENCIMENTO 20",
+        "ativo": "S",
+        "corteUltimoDiaMes": "N",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    },
+    {
+        "id": 20,
+        "diaCorte": 5,
+        "diaVencimento": 15,
+        "descricao": "VENCIMENTO 15",
+        "ativo": "S",
+        "corteUltimoDiaMes": "N",
+        "diasCarencia": 0,
+        "descricaoContaBancariaCicloAtual": "",
+        "descricaoContaBancariaProximoCiclo": ""
+    }
+]
