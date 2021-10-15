@@ -14,7 +14,7 @@ module M2yBecker
     end
 
     
-    # Alterar Portadores 
+    # PATCH DE ALTERACAO DO USUÁRIO  
     def ChangeUser(idCartao,id)
       response = @request.patch(@url + USERS_PATH + "id?id_fatura=#{idCartao.to_s}")
       CdtModel.new(response)

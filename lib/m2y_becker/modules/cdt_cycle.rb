@@ -7,7 +7,6 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    # Alterar ciclos 
 
     def changeCycle(idCartao, idCiclo)
       body = {:idciclovencimento => idCiclo}
