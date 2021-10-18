@@ -9,15 +9,12 @@ module M2yBecker
 
     def changeCycle(idCartao, idCiclo)
       body = {:idciclovencimento => idCiclo}
-      response = @request.patch(@url + USERS_PATH + idCartao.to_s + CHANGECYCLE_PATH + "?idciclovencimento=#{idCiclo.to_s}", body)
+      response = @request.patch(@url + USERS_PATH + idCartao.to_s + CHANGECYCLE_PATH + idCiclo.to_s, body)
       CdtModel.new(response)
     end 
 
 
-    def changePassword(id)
-      response = @request.get(@url + USERS_PATH + id.to_s + CHANGECYCLE_PATH)
-      CdtModel.new(response)
-    end 
+
   end
   
 end 
