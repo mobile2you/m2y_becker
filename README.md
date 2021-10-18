@@ -395,3 +395,33 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
         }
     ]
 }
+
+
+```
+**CdtUser.ChangeUser(300):**
+
+``` json 
+{
+    "httpStatus": "OK",
+    "mensagens": [
+        "Operação realizada com sucesso."
+    ]
+}
+```
+
+**CdtCard.registerPassword(100):**
+
+```json
+
+{
+    "msg": "A senha do cartão foi cadastrada com sucesso."
+}
+
+```
+**CdtCycle.changeCycle(30,20):**
+
+```json
+
+{
+    "msg": "O ciclo do cliente foi alterado com sucesso"
+}
