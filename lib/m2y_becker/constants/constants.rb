@@ -31,8 +31,10 @@ module M2yBecker
 
   QUERY_CPF_PATH = "api/api/v3/portadores/consulta-cliente-cpf?"
 
-  CHANGECYCLE_PATH = "/alterar-ciclo-vencimento?idciclovencimento="
+  CHANGECYCLE_PATH = "/alterar-ciclo-vencimento"
 
+  PASSWORD_PATH = "/cadastrar_senha"
+  
 
 
 end

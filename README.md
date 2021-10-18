@@ -395,3 +395,27 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
         }
     ]
 }
+
+# COLOCAR O JSON DE ALTERAÇAO DO CYCLE E USER 
+
+```
+**CdtUser.ChangeUser(300):**
+
+``` json 
+{
+    "httpStatus": "OK",
+    "mensagens": [
+        "Operação realizada com sucesso."
+    ]
+}
+```
+
+**CdtCard.registerPassword(100):**
+
+```json
+
+{
+    "msg": "A senha do cartão foi cadastrada com sucesso."
+}
+
+```
