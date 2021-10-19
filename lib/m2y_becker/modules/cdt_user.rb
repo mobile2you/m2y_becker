@@ -18,8 +18,7 @@ module M2yBecker
     def changeUser(id,idFatura)
       body = {:fatura => idFatura}
       response = @request.patch(@url + USERS_PATH + "#{id.to_s}?id_fatura=#{idFatura.to_s}", body )
-      CdtModel.new(response)
-      
+      CdtModel.new(response)      
     end 
 
   end
