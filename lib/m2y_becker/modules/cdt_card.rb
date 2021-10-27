@@ -7,9 +7,16 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    # CADASTRAR A SENHA DO CARTAO  
+      # ALTERA SENHA 
+    def changePassword(id,idCiclo)
+      body = {:idciclovencimento => idCiclo}
+      response = @request.patch(@url + USERS_PATH + id.to_s + CHANGECYCLE_PATH + idCiclo.to_s, body)
+      CdtModel.new(response)
+    end 
+
+    # PATCH CADASTRA E ALTERA A SENHA DO CARTAO  
     def registerPassword(id)
-      response = @request.get(@url + CARD_PATH + id.to_s + PASSWORD_PATH)
+      response = @request.patch(@url + CARD_PATH + id.to_s + PASSWORD_PATH)
       CdtModel.new(response)
     end
 

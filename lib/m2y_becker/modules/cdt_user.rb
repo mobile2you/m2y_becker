@@ -14,11 +14,11 @@ module M2yBecker
     end
 
     
-    #  ALTERAÇAO DO PORTADOR 
-    def ChangeUser(id)
-      response = @request.patch(@url + USERS_PATH + ":id#{id.to_s}")
-      CdtModel.new(response)
-      
+    #  PATCH ALTERA O PORTADOR 
+    def changeUser(id,idFatura)
+      body = {:fatura => idFatura}
+      response = @request.patch(@url + USERS_PATH + "#{id.to_s}?id_fatura=#{idFatura.to_s}", body )
+      CdtModel.new(response)      
     end 
 
   end

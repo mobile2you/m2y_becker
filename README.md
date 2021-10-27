@@ -396,10 +396,12 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
     ]
 }
 
-# COLOCAR O JSON DE ALTERAÇAO DO CYCLE E USER 
 
-```
+
+**CdtUser.ChangeUser(100,1):**
+
 **CdtUser.ChangeUser(300):**
+
 
 ``` json 
 {
@@ -409,7 +411,22 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
     ]
 }
 ```
+**CdtCycle.changeCycle(30,20):**
 
+```json
+
+{
+    "msg": "O ciclo do cliente foi alterado com sucesso"
+}
+```
+**CdtCycle.changePassword(18,20):**
+
+```json
+
+{
+    "msg": "O ciclo do cliente foi alterado com sucesso"
+}
+```
 **CdtCard.registerPassword(100):**
 
 ```json
