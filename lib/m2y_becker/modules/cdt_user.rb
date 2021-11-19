@@ -14,7 +14,7 @@ module M2yBecker
     end
 
     
-    #  PATCH ALTERA O PORTADOR 
+
     def changeUser(id,idFatura)
       body = {:fatura => idFatura}
       response = @request.patch(@url + USERS_PATH + "#{id.to_s}?id_fatura=#{idFatura.to_s}", body )
