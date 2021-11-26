@@ -436,3 +436,94 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 }
 
 ```
+**CdtUser.findInfomation(36):**
+``` json
+{
+    "nome": "ROBERTO PEIXOTO MULLER",
+    "cpf": "01944563075",
+    "email": "roberto.muller@lojasbecker.com",
+    "valorFatura": 96.15,
+    "dataVencimentoFatura": "2021-11-10T03:00:00.000+0000",
+    "diaCorte": 0,
+    "diaVencimento": 10,
+    "melhorDiaCompra": 1,
+    "limitePrincipal": 3500.00,
+    "limiteParcelado": 0,
+    "saldoDisponivel": 3470.00,
+    "saldoDisponivelParcelado": 0,
+    "saldoReservado": 0.0,
+    "valorLancamentosFuturos": 30.0,
+    "statusFaturaDigital": "A",
+    "numeroCartaoTruncado": "650596XXXXXX8383",
+    "idCartao": 46,
+    "statusCartao": null,
+    "limiteSaque": 875.00,
+    "saldoDisponivelSaque": 875.00,
+    "dataFechamentoProxFatura": "2021-11-30",
+    "dataCadastro": "2020-01-30",
+    "numeroCartaoCriptografado": null,
+    "permiteAcessoApp": true,
+    "portadorNecessidadesVisuais": false,
+    "senhaExpirada": false
+}
+```
+
+**CdtUser.findPhone(id):**
+```json 
+[
+    {
+        "id": 92,
+        "tipo": "CELULAR",
+        "ramal": null,
+        "area": "55",
+        "numero": "981394447",
+        "utilizadoFaturaDigital": false,
+        "utilizadoServicoSms": true,
+        "utilizadoTaxaBonificada": false,
+        "isRecebeFaturaSms": true
+    }
+]
+```
+
+**CdtCard.findCardByClient(id_cliente):**
+
+```json 
+
+[
+    {
+        "id": 46,
+        "bandeira": "ELO",
+        "idPortadorCredito": 69,
+        "idPortadorDebito": null,
+        "cpf": "01944563075",
+        "funcaoCartao": "CREDITO",
+        "virtual": false,
+        "nome": "ROBERTO PEIXOTO MULLER",
+        "statusEmbossing": "AGUARDANDO_EMBOSSING",
+        "status": "BLOQUEADO",
+        "dataValidade": "2026-11-25",
+        "idAdicional": null,
+        "numeroMascarado": "650596XXXXXX8383",
+        "bloqueioCartao": {
+            "tipoBloqueio": {
+                "id": 2,
+                "descricao": "Bloqueio de cadastro",
+                "chave": "BLOQUEIO_CADASTRO"
+            },
+            "observacao": "Bloqueio de cadastro",
+            "dataBloqueio": "2021-11-25T17:49:20.008Z"
+        },
+        "cancelamentoCartao": null,
+        "telefone": {
+            "area": "55",
+            "telefone": "981394447"
+        },
+        "dataEmissao": "2021-11-25",
+        "tipoCartao": null,
+        "possuiSenha": true,
+        "codigoExterno": "2c768a6e-41eb-42c1-a979-10510ec0d648",
+        "permiteImpressao": false
+    }
+]
+```
+
