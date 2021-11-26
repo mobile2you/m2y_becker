@@ -436,7 +436,7 @@ Everyone interacting in the M2yBecker project’s codebases, issue trackers, cha
 }
 
 ```
-**CdtUser.findInfomation(36):**
+**CdtUser.findInformation(36):**
 ``` json
 {
     "nome": "ROBERTO PEIXOTO MULLER",

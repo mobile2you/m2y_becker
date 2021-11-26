@@ -6,7 +6,7 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def findInfomation(id)
+    def findInformation(id)
       response = @request.get(@url + USERS_PATH + "#{id}/informacoes")
       CdtModel.new(response)
     end
