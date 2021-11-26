@@ -1,40 +1,36 @@
 module M2yBecker
-  
-  #envs
-  HOMOLOGATION = "hml"
-  PRODUCTION = "prd"
+  # envs
+  HOMOLOGATION = "hml".freeze
+  PRODUCTION = "prd".freeze
 
-  #urls
-  URL_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/"
-  URL_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/"
+  # urls
+  URL_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
+  URL_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
 
-  #auth_url
-  TOKEN_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/"
-  TOKEN_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/"
+  # auth_url
+  TOKEN_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
+  TOKEN_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
 
+  API = "api/api/".freeze
+  TOKEN_PATH = "autenticacao/tokens".freeze
+  CARD_PATH = "api/api/v3/cartoes/".freeze
+  GROUPS_PATH = "autenticacao/grupos".freeze
 
-  API = "api/api/"
-  TOKEN_PATH = "autenticacao/tokens"
-  CARD_PATH = "api/api/v3/cartoes/"
-  GROUPS_PATH = "autenticacao/grupos"
+  USERS_PATH = "api/api/v3/portadores/".freeze
+  HISTORY_PATH = "/historico".freeze
+  CUSTOMER_ID_PATH = "/api/api/v3/portadores/consulta-cliente-id?id=".freeze
 
-  USERS_PATH = "api/api/v3/portadores/"
-  HISTORY_PATH = "/historico"
-  CUSTOMER_ID_PATH = "/api/api/v3/portadores/consulta-cliente-id?id="
+  CURRENT_BILL_PATH = "/fatura-atual".freeze
+  CLOSE_BILL_PATH = "/fatura-fechada".freeze
+  PERIOD_BILL_PATH = "/fatura-periodo?".freeze
+  DETAIL_BILL_PATH = "/fatura-detalhada?".freeze
+  PDF_BILL_PATH = "api/v3/fatura-pdf/consultar/".freeze
 
-  CURRENT_BILL_PATH = "/fatura-atual" 
-  CLOSE_BILL_PATH = "/fatura-fechada"
-  PERIOD_BILL_PATH = "/fatura-periodo?"
-  DETAIL_BILL_PATH = "/fatura-detalhada?"
+  CYCLE_PATH = "/api/api/v3/ciclos".freeze
 
-  CYCLE_PATH = "/api/api/v3/ciclos"
+  QUERY_CPF_PATH = "api/api/v3/portadores/consulta-cliente-cpf?".freeze
 
-  QUERY_CPF_PATH = "api/api/v3/portadores/consulta-cliente-cpf?"
+  CHANGECYCLE_PATH = "/alterar-ciclo-vencimento?idciclovencimento=".freeze
 
-  CHANGECYCLE_PATH = "/alterar-ciclo-vencimento"
-
-  PASSWORD_PATH = "/cadastrar_senha"
-  
-
-
+  PASSWORD_PATH = "/cadastrar_senha".freeze
 end
