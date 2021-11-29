@@ -5,8 +5,9 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def findCardByClient(id_cliente)
-      response = @request.get(@url + CARD_PATH + "consultar-por-titular?idClienteTitular=#{id_cliente}")
+    def findCardByClient(id)
+      response = @request.get(@url + CARD_PATH + "consultar-por-titular?idClienteTitular=#{id}")
+      CdtModel.new(response)
     end
 
     def registerPassword(id_cartao, senha_cartao)

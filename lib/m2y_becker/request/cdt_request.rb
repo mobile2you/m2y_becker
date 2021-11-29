@@ -1,13 +1,11 @@
 require "httparty"
 
 module M2yBecker
-
   class CdtRequest
-
     def initialize(token = nil, user, pass)
       @headers = {
         "Content-Type" => 'application/json',
-        "Authorization" => ENV["CDT_TOKEN#{user[0,6]}"]
+        "Authorization" => ENV["CDT_TOKEN#{user[0, 6]}"],
       }
     end
 
@@ -25,11 +23,9 @@ module M2yBecker
       end
       req = HTTParty.post(url,
                           body: body.to_json,
-                          headers: @headers
-                          )
+                          headers: @headers)
       validResponse(req)
     end
-
 
     def postWithHeader(url, body, headers = [])
       # if use_json
@@ -46,13 +42,11 @@ module M2yBecker
       puts url.to_s
       req = HTTParty.post(url,
                           body: body.to_json,
-                          headers: @headers
-                          )
+                          headers: @headers)
       validResponse(req)
     end
 
     def postBinary(url, options = {})
-
       body = options[:body].nil? ? {} : options[:body]
       headers = options[:headers].nil? ? {} : options[:headers]
       use_logs = options[:use_logs].nil? ? true : options[:use_logs]
@@ -63,8 +57,7 @@ module M2yBecker
 
       req = HTTParty.post(url,
                           body: body,
-                          headers: headers
-                          )
+                          headers: headers)
 
       validResponse(req)
     end
@@ -78,10 +71,9 @@ module M2yBecker
         end
       end
       puts url.to_s
-      req = HTTParty.get( url,
+      req = HTTParty.get(url,
                           headers: @headers,
-                          follow_redirects: follow_redirects
-                         )
+                          follow_redirects: follow_redirects)
       return req unless follow_redirects
 
       if skipValidation
@@ -100,8 +92,7 @@ module M2yBecker
 
       req = HTTParty.put(url,
                          headers: @headers,
-                         body: body.to_json
-                         )
+                         body: body.to_json)
       validResponse(req)
     end
 
@@ -113,11 +104,9 @@ module M2yBecker
       end
       req = HTTParty.patch(url,
                            headers: @headers,
-                           body: body.to_json
-                           )
+                           body: body.to_json)
       validResponse(req)
     end
-
 
     def delete(url, body = {}, headers = [])
       if headers.length > 0
@@ -136,12 +125,11 @@ module M2yBecker
       validResponse(req)
     end
 
-
     def validJson?(json)
       JSON.parse(json)
-      return true
+      true
     rescue JSON::ParserError => e
-      return false
+      false
     end
 
     def validResponse(req)
@@ -152,22 +140,24 @@ module M2yBecker
       end
 
       begin
-        respose = req.parsed_response
-        if respose.kind_of?(Hash)
-          respose[:statusCode] = req.code
+        response = req.parsed_response
+        if response.is_a?(Hash)
+          response[:statusCode] = req.code
         end
-        if respose.kind_of?(String)
-          resposeJson = {}
-          resposeJson[:message] = respose
-          resposeJson[:statusCode] = req.code
-          respose = resposeJson
+        if response.is_a?(Array)
+          response = response[0]
+          response[:statusCode] = req.code
         end
-        respose
+        if response.is_a?(String)
+          responseJson = {}
+          responseJson[:message] = response
+          responseJson[:statusCode] = req.code
+          response = responseJson
+        end
+        response
       rescue
-        {:message => "Erro interno Baas", :statusCode => 500}
+        { :message => "Erro interno Baas", :statusCode => 500 }
       end
     end
-
   end
-
 end
