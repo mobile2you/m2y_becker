@@ -1,7 +1,7 @@
 module M2yBecker
   class CdtBill < CdtModule
     def findCurrentBill(id)
-      response = @request.get(@url + USERS_PATH + id.to_s + CURRENT_BILL)
+      response = @request.get(@url + USERS_PATH + id.to_s + CURRENT_BILL_PATH)
       CdtModel.new(response)
     end
 
