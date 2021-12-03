@@ -24,5 +24,6 @@ module M2yBecker
     def findPhone(id)
       @request.get(@url + USERS_PATH + "#{id}/telefones/")
     end
+
   end
 end
