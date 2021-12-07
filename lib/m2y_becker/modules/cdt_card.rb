@@ -23,5 +23,20 @@ module M2yBecker
       response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha", body)
       CdtModel.new(response)
     end
+
+    def unblockCard(id_cartao)
+      body = { "observacao": "Cartao desbloqueado" }
+
+      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/desbloqueio", body)
+      CdtModel.new(response)
+    end
+
+    def blockCard(id_cartao)
+      body = { "idTipoBloqueio": 1,
+      "observacao": "Cartao bloqueado temporariamente"}
+
+      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/bloqueio", body)
+      CdtModel.new(response)
+    end
   end
 end
