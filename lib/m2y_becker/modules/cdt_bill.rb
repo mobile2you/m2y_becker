@@ -16,13 +16,23 @@ module M2yBecker
     end
 
     def findDetailBill(id, id_bill)
-      @id_bill = id_bill
-      response = @request.get(@url + USERS_PATH + id.to_s + DETAIL_BILL_PATH + "id_fatura=#{@id_bill}")
+      response = @request.get(@url + USERS_PATH + id.to_s + DETAIL_BILL_PATH + "id_fatura=#{id_bill}")
       CdtModel.new(response)
     end
 
     def findBillPDF(id_bill)
       response = @request.get(@url + PDF_BILL_PATH + id_bill.to_s)
+      CdtModel.new(response)
+    end
+
+    def sendBillEmail(id, email)
+      body = { :email => email }
+      response = @request.post(@url + USERS_PATH + "#{id}/adesao-fatura-digital", body)
+      CdtModel.new(response)
+    end
+
+    def sendBillSms(id, id_phone)
+      response = @request.patch(@url + USERS_PATH + "#{id}/adesao-fatura-pdf-sms?idCelular=#{id_phone}")
       CdtModel.new(response)
     end
   end
