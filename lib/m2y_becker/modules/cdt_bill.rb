@@ -25,14 +25,25 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def sendBillEmail(id, email)
+    def acceptBillEmail(id, email)
       body = { :email => email }
       response = @request.post(@url + USERS_PATH + "#{id}/adesao-fatura-digital", body)
       CdtModel.new(response)
     end
 
-    def sendBillSms(id, id_phone)
+    def cancelBillEmail(id, email)
+      body = { :email => email }
+      response = @request.post(@url + USERS_PATH + "#{id}/cancelamento-fatura-digital", body)
+      CdtModel.new(response)
+    end
+
+    def acceptBillSms(id, id_phone)
       response = @request.patch(@url + USERS_PATH + "#{id}/adesao-fatura-pdf-sms?idCelular=#{id_phone}")
+      CdtModel.new(response)
+    end
+
+    def cancelBillSms(id, id_phone)
+      response = @request.patch(@url + USERS_PATH + "#{id}/cancelar-fatura-pdf-sms?idCelular=#{id_phone}")
       CdtModel.new(response)
     end
   end
