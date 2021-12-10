@@ -10,17 +10,32 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def registerPassword(id_cartao, senha_cartao)
-      body = { :senha_cartao => senha_cartao.to_s }
-
-      response = @request.patch(@url + CARD_PATH + id_cartao.to_s + PASSWORD_PATH, body)
+    def registerPasswordCard(id_cartao, senha)
+      headers = [{:key => "senha", :value => senha}]
+      response = @request.patch(@url + CARD_PATH + id_cartao.to_s + PASSWORD_PATH, nil, headers)
       CdtModel.new(response)
     end
 
-    def changePassword(id_cartao, senha_cartao, senha_nova)
-      body = { :senha_cartao => senha_cartao, :senha_nova => senha_nova }
+    def changePasswordCard(id_cartao, senha_antiga, senha_nova)
+      headers = [{ :key => "senha_antiga", :value => senha_antiga}, {:key => "senha_nova", :value => senha_nova}]
+      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha", nil, headers)
+      CdtModel.new(response)
+    end
 
-      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha", body)
+    def unblockCard(id_cartao)
+      body = { "observacao": "Cartao desbloqueado" }
+
+      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/desbloqueio", body)
+      CdtModel.new(response)
+    end
+
+    def blockCard(id_cartao)
+      body = {
+        "idTipoBloqueio": 1,
+        "observacao": "Cartao bloqueado temporariamente",
+      }
+
+      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/bloqueio", body)
       CdtModel.new(response)
     end
   end
