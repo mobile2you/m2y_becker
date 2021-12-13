@@ -11,13 +11,13 @@ module M2yBecker
     end
 
     def registerPasswordCard(id_cartao, senha)
-      headers = [{:key => "senha", :value => senha}]
+      headers = [{ :key => "senha", :value => senha }]
       response = @request.patch(@url + CARD_PATH + id_cartao.to_s + PASSWORD_PATH, nil, headers)
       CdtModel.new(response)
     end
 
     def changePasswordCard(id_cartao, senha_antiga, senha_nova)
-      headers = [{ :key => "senha_antiga", :value => senha_antiga}, {:key => "senha_nova", :value => senha_nova}]
+      headers = [{ :key => "senha_antiga", :value => senha_antiga }, { :key => "senha_nova", :value => senha_nova }]
       response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha", nil, headers)
       CdtModel.new(response)
     end
@@ -36,6 +36,12 @@ module M2yBecker
       }
 
       response = @request.patch(@url + CARD_PATH + "#{id_cartao}/bloqueio", body)
+      CdtModel.new(response)
+    end
+
+    def checkCardPassword(id_cartao, senha)
+      headers = [{ :key => "senha", :value => senha }]
+      response = @request.postWithHeader(@url + CARD_PATH + "#{id_cartao}/autenticar?autenticarCartaoBloqueado=true", nil, headers)
       CdtModel.new(response)
     end
   end
