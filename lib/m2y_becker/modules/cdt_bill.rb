@@ -46,5 +46,10 @@ module M2yBecker
       response = @request.patch(@url + USERS_PATH + "#{id}/cancelar-fatura-pdf-sms?idCelular=#{id_phone}")
       CdtModel.new(response)
     end
+
+    def futureBill(id)
+      response = @request.get(@url + USERS_PATH + id.to_s + FUTURE_BILL_PATH)
+      CdtModel.new(response)
+    end
   end
 end

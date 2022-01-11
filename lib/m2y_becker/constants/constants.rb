@@ -25,6 +25,7 @@ module M2yBecker
   PERIOD_BILL_PATH = "/fatura-periodo?".freeze
   DETAIL_BILL_PATH = "/fatura-detalhada?".freeze
   PDF_BILL_PATH = "api/v3/fatura-pdf/consultar/".freeze
+  FUTURE_BILL_PATH = "/lista-fatura-futura".freeze
 
   CYCLE_PATH = "/api/api/v3/ciclos".freeze
 
