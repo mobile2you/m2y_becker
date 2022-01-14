@@ -51,5 +51,10 @@ module M2yBecker
       response = @request.get(@url + USERS_PATH + id.to_s + FUTURE_BILL_PATH)
       CdtModel.new(response)
     end
+
+    def installmentInfo(id)
+      response = @request.get(@url + USERS_PATH + id.to_s + PARCELING_INFO_PATH)
+      CdtModel.new(response)
+    end
   end
 end

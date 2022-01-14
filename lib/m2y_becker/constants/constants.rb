@@ -26,6 +26,7 @@ module M2yBecker
   DETAIL_BILL_PATH = "/fatura-detalhada?".freeze
   PDF_BILL_PATH = "api/v3/fatura-pdf/consultar/".freeze
   FUTURE_BILL_PATH = "/lista-fatura-futura".freeze
+  PARCELING_INFO_PATH = "/consulta-parcelamento-fatura-pendentes".freeze
 
   CYCLE_PATH = "/api/api/v3/ciclos".freeze
 
