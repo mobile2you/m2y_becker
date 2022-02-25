@@ -45,7 +45,7 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-    def changePasswordWithoutValidation(id_cartao, senha_antiga, senha_nova)
+    def changePasswordWithoutValidation(id_cartao, senha_nova)
       headers = [{ :key => "senha_nova", :value => senha_nova }]
       response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
       CdtModel.new(response)
