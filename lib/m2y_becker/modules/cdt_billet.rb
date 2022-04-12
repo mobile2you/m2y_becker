@@ -15,5 +15,10 @@ module M2yBecker
       response = @request.get(@url + BILLET_PATH + "#{id_bill}/documento-pagamento?idContaBancaria=#{id_bank_account}")
       CdtModel.new(response)
     end
+
+    def findBillPDF(id_bill)
+      response = @request.get(@url + PDF_BILL_PATH + id_bill.to_s)
+      CdtModel.new(response)
+    end
   end
 end
