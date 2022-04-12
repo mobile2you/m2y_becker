@@ -17,8 +17,7 @@ module M2yBecker
     end
 
     def findBillPDF(id_bill)
-      response = @request.get(@url + API + PDF_BILL_PATH + id_bill.to_s)
-      CdtModel.new(response)
+      @request.get(@url + API + PDF_BILL_PATH + id_bill.to_s)
     end
   end
 end
