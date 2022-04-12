@@ -5,11 +5,11 @@ module M2yBecker
 
   # urls
   URL_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
-  URL_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
+  URL_PRD = "https://cards-api-v3.connect.dock.tech/".freeze
 
   # auth_url
   TOKEN_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
-  TOKEN_PRD = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
+  TOKEN_PRD = "https://cards-api-v3.connect.dock.tech/".freeze
 
   API = "api/api/".freeze
   TOKEN_PATH = "autenticacao/tokens".freeze
@@ -35,4 +35,6 @@ module M2yBecker
   CHANGECYCLE_PATH = "/alterar-ciclo-vencimento?idciclovencimento=".freeze
 
   PASSWORD_PATH = "/cadastrar_senha".freeze
+
+  BILLET_PATH = "/api/api/v3/boletos/"
 end
