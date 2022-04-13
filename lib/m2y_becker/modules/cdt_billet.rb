@@ -6,7 +6,8 @@ module M2yBecker
     end
 
     def registerBillet(id_bill, id_bank_account)
-      response = @request.post(@url + BILLET_PATH + "#{id_bill}/registrar?idContaBancaria=#{id_bank_account}")
+      body = { :id_bank_account => id_bank_account }
+      response = @request.post(@url + BILLET_PATH + "#{id_bill}/registrar?idContaBancaria=#{body[:id_bank_account]}", body)
       CdtModel.new(response)
     end
 
