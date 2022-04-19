@@ -13,7 +13,7 @@ module M2yBecker
     def self.saveToken(basic, token)
       if !token.nil?
         ENV["CDT_TOKEN#{basic[0, 6]}"] = token.to_s
-        ENV["CDT_TOKEN_EXPIRY#{basic[0, 6]}"] = (Time.now + 604800).to_s
+        ENV["CDT_TOKEN_EXPIRY#{basic[0, 6]}"] = (Time.now + 1500).to_s
       end
     end
 
