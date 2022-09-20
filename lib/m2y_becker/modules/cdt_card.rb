@@ -50,5 +50,25 @@ module M2yBecker
       response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
       CdtModel.new(response)
     end
+
+    def activateVirtualCvv(id)
+      response = @request.patch(@url + CARD_PATH + "ativar-cvvVirtual-cartao/#{id}")
+      CdtModel.new(response)
+    end
+
+    def deactivateVirtualCvv(id)
+      response = @request.patch(@url + CARD_PATH + "inativar-cvvVirtual-cartao/#{id}")
+      CdtModel.new(response)
+    end
+
+    def getVirtualCard(id)
+      response = @request.get(@url + CARD_PATH + "buscar-cartaoVirtual/#{id}")
+      CdtModel.new(response)
+    end
+
+    def generateVirtualCvv(id)
+      response = @request.get(@url + CARD_PATH + "gerar-cvvVirtual-cartao/#{id}")
+      CdtModel.new(response)
+    end
   end
 end
