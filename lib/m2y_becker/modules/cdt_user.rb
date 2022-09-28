@@ -25,5 +25,9 @@ module M2yBecker
       @request.get(@url + USERS_PATH + "#{id}/telefones/")
     end
 
+    def recieveSms(id, phone_id)
+      @request.patch(@url + USERS_PATH + "#{id}/telefones/recebe-sms?idCelular=#{phone_id}")
+    end
+
   end
 end
