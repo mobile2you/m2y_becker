@@ -29,5 +29,8 @@ module M2yBecker
       @request.patch(@url + USERS_PATH + "#{id}/telefones/recebe-sms?idCelular=#{phone_id}")
     end
 
+    def legalBlock(id)
+      @request.get(@url + LEGAL_BLOCK + "?id%20do%20portador=#{id}")
+    end
   end
 end
