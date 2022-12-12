@@ -16,6 +16,11 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.cnae_list
+      response = get(M2yAdiq.configuration.main_url + TaxPaths::CNAE_LIST)
+      response.parsed_response
+    end
+
 
 
   end

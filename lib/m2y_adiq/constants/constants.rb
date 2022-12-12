@@ -12,6 +12,7 @@ module M2yAdiq
 
   module TaxPaths
     CNAE_FEE = '/v4/interface/onboarding/cnae_fees_list'
+    CNAE_LIST = '/v1/interface/domain-tables/cnae_list'
     PAYMENT_PLAN = '/v1/interface/domain-tables/paymentplan'
     COMBO = '/v1/interface/domain-tables/combo'
   end
