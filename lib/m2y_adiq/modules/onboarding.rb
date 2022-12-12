@@ -11,6 +11,11 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.confirm_register(body)
+      response = post(M2yAdiq.configuration.main_url + OnboardingPaths::CONFIRM, body)
+      response.parsed_response
+    end
+
     def self.company_codes
       response = get(M2yAdiq.configuration.main_url + OnboardingPaths::COMPANY_CODES)
       response.parsed_response
