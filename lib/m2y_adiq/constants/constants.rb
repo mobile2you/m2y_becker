@@ -3,7 +3,7 @@
 module M2yAdiq
   
   module OnboardingPaths
-    REGISTER = '/v3/interface/onboarding'
+    REGISTER = '/v3/interface/onboarding/pj'
     LIST = '/v3/interface/onboarding/list'
     CONFIRM = '/v3/interface/onboarding/confirm'
     COMPANY_CODES = "/v1/interface/domain-tables/company_formation_list"
