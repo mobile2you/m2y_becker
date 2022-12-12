@@ -5,6 +5,7 @@ module M2yAdiq
   module OnboardingPaths
     REGISTER = '/v3/interface/onboarding/pj'
     LIST = '/v3/interface/onboarding/list'
+    STORE_LIST = '/v1/interface/seller/list'
     CONFIRM = '/v3/interface/onboarding/confirm'
     COMPANY_CODES = "/v1/interface/domain-tables/company_formation_list"
     LEGAL_NATURE_CODES = "/v1/interface/domain-tables/legal_nature_list"

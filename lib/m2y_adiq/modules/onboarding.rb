@@ -6,6 +6,12 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.store_list
+      response = post(M2yAdiq.configuration.main_url + OnboardingPaths::STORE_LIST, {})
+      response.parsed_response
+    end
+
+
     def self.register(body)
       response = post(M2yAdiq.configuration.main_url + OnboardingPaths::REGISTER, body)
       response.parsed_response
