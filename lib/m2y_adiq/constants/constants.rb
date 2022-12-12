@@ -15,6 +15,7 @@ module M2yAdiq
     CNAE_LIST = '/v1/interface/domain-tables/cnae_list'
     PAYMENT_PLAN = '/v1/interface/domain-tables/paymentplan'
     COMBO = '/v1/interface/domain-tables/combo'
+    PRODUCTS = '/v1/interface/domain-tables/brand_product_list'
   end
 
 

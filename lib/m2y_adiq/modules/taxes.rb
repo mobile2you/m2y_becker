@@ -21,7 +21,10 @@ module M2yAdiq
       response.parsed_response
     end
 
-
+    def self.product_list
+      response = get(M2yAdiq.configuration.main_url + TaxPaths::PRODUCTS)
+      response.parsed_response
+    end
 
   end
 end
