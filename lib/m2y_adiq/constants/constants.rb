@@ -3,9 +3,9 @@
 module M2yAdiq
   
   module OnboardingPaths
-    REGISTER = '/v4/interface/onboarding'
-    LIST = '/v4/interface/onboarding/list'
-    CONFIRM = '/v4/interface/onboarding/confirm'
+    REGISTER = '/v3/interface/onboarding'
+    LIST = '/v3/interface/onboarding/list'
+    CONFIRM = '/v3/interface/onboarding/confirm'
     COMPANY_CODES = "/v1/interface/domain-tables/company_formation_list"
     LEGAL_NATURE_CODES = "/v1/interface/domain-tables/legal_nature_list"
   end
