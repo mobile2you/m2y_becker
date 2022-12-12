@@ -16,5 +16,10 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.legal_nature_codes
+      response = get(M2yAdiq.configuration.main_url + OnboardingPaths::LEGAL_NATURE_CODES)
+      response.parsed_response
+    end
+
   end
 end

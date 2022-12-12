@@ -7,7 +7,7 @@ module M2yAdiq
     LIST = '/v4/interface/onboarding/list'
     CONFIRM = '/v4/interface/onboarding/confirm'
     COMPANY_CODES = "/v1/interface/domain-tables/company_formation_list"
-
+    LEGAL_NATURE_CODES = "/v1/interface/domain-tables/legal_nature_list"
   end
 
   module TaxPaths
