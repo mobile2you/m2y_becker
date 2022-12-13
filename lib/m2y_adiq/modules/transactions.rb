@@ -1,7 +1,7 @@
 module M2yAdiq
   class Transactions < Base
 
-    def self.list(from, seller, start = 0, length = 1000)
+    def self.list(from, seller, start = 0, length = 999)
       body = {
         "start": start,
         "length": length,
