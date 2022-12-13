@@ -7,7 +7,7 @@ require 'm2y_adiq/modules/onboarding'
 require 'm2y_adiq/helpers/token_helper'
 require 'm2y_adiq/modules/auth'
 require 'm2y_adiq/modules/taxes'
-# require 'm2y_adiq/modules/reports'
+require 'm2y_adiq/modules/transactions'
 
 require_relative "m2y_adiq/version"
 

@@ -19,6 +19,10 @@ module M2yAdiq
     PRODUCTS = '/v1/interface/domain-tables/brand_product_list'
   end
 
+  module TransactionsPaths
+    LIST = '/v1/interface/payments/list'
+  end
+
 
   AUTH_PATH = '/v1/interface/auth/oauth2'
 
