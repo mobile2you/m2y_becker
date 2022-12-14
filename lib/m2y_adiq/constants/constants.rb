@@ -17,6 +17,7 @@ module M2yAdiq
     PAYMENT_PLAN = '/v1/interface/domain-tables/paymentplan'
     COMBO = '/v1/interface/domain-tables/combo'
     PRODUCTS = '/v1/interface/domain-tables/brand_product_list'
+    BRANDS = '/v1/interface/domain-tables/brand_list'
   end
 
   module TransactionsPaths

@@ -26,5 +26,10 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.brand_list
+      response = get(M2yAdiq.configuration.main_url + TaxPaths::BRANDS)
+      response.parsed_response
+    end
+
   end
 end
