@@ -6,6 +6,15 @@ module M2yAdiq
       response.parsed_response
     end
 
+    def self.list(seller, start = 0, length = 999)
+      body = {
+        "start": start,
+        "length": length,
+        "seller_id": seller
+      }
+      response = post(M2yAdiq.configuration.main_url + TaxPaths::SALES_PLANS, body)
+      response.parsed_response
+    end
     def self.combo_fees
       response = get(M2yAdiq.configuration.main_url + TaxPaths::COMBO)
       response.parsed_response

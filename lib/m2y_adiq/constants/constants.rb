@@ -18,6 +18,7 @@ module M2yAdiq
     COMBO = '/v1/interface/domain-tables/combo'
     PRODUCTS = '/v1/interface/domain-tables/brand_product_list'
     BRANDS = '/v1/interface/domain-tables/brand_list'
+    SALES_PLANS = "/v1/interface/seller/mdr"
   end
 
   module TransactionsPaths
