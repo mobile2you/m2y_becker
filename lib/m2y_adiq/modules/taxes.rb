@@ -6,7 +6,7 @@ module M2yAdiq
       response.parsed_response
     end
 
-    def self.list(seller, start = 0, length = 999)
+    def self.sales_plans(seller, start = 0, length = 999)
       body = {
         "start": start,
         "length": length,
