@@ -23,6 +23,7 @@ module M2yAdiq
 
   module TransactionsPaths
     LIST = '/v1/interface/payments/list'
+    SCHEDULE_LIST = "/v1/interface/schedule-receivables/analytic_statement"
   end
 
 
