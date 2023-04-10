@@ -17,8 +17,8 @@ module M2yAdiq
       request["Content-Type"] = "application/json"
 
       request.body = JSON.dump({
-                                 "username": "pjpag",
-                                 "password": "Mudar@123"
+                                 "username": M2yAdiq.configuration.username,
+                                 "password": M2yAdiq.configuration.password
       })
 
       response = https.request(request)
