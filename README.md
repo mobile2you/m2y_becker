@@ -1,4 +1,4 @@
-# M2yAdiq
+# M2yBecker
 
 
 ## Instalação
@@ -6,7 +6,7 @@
 Adicionar ao Gemfile:
 
 ```ruby
-gem 'm2y_adiq'
+gem 'm2y_becker'
 ```
 
 
@@ -16,7 +16,7 @@ Adicionar ao Gemfile:
 
 ```ruby
 
-M2yAdiq.configure do |config|
+M2yBecker.configure do |config|
   config.main_url  = ""  
   config.username  = "cccc"
   config.password  = "xxx"

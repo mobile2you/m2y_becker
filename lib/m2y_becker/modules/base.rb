@@ -1,4 +1,4 @@
-module M2yAdiq
+module M2yBecker
   require 'httparty'
   class Base
 
@@ -33,7 +33,7 @@ module M2yAdiq
       https.use_ssl = true
 
       request = Net::HTTP::Post.new(url)
-      request["Authorization"] = "Basic #{M2yAdiq.configuration.liveness_auth}"
+      request["Authorization"] = "Basic #{M2yBecker.configuration.liveness_auth}"
       form_data = [['image_1', body[:image_1]],['image_2', body[:image_2]]]
       request.set_form form_data, 'multipart/form-data'
       response = https.request(request)
@@ -50,7 +50,7 @@ module M2yAdiq
       https.use_ssl = true
 
       request = Net::HTTP::Post.new(url)
-      request["Authorization"] = "Basic #{M2yAdiq.configuration.liveness_auth}"
+      request["Authorization"] = "Basic #{M2yBecker.configuration.liveness_auth}"
       response = https.request(request)
       response.read_body
 
@@ -86,7 +86,7 @@ module M2yAdiq
 
     def self.liveness_headers
       headers = base_headers
-      headers["Authorization"] = "Basic #{M2yAdiq.configuration.liveness_auth}"
+      headers["Authorization"] = "Basic #{M2yBecker.configuration.liveness_auth}"
       headers
     end
 

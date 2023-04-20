@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/m2y_adiq/version"
+require_relative "lib/m2y_becker/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "m2y_adiq"
-  spec.version = M2yAdiq::VERSION
+  spec.name = "m2y_becker"
+  spec.version = M2yBecker::VERSION
   spec.authors = ["Caio Lopes"]
   spec.email = ["caio.lopes@mobile2you.com.br"]
 

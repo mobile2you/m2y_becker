@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-module M2yAdiq
+module M2yBecker
   
-  module OnboardingPaths
-    REGISTER = '/v3/interface/onboarding/pj'
-    LIST = '/v3/interface/onboarding/list'
+  module BillPaths
+    GENERAL = '/api/v1/faturamentos/portador'
+    CURRENT = '/faturas/atual'
+
+    
     STORE_LIST = '/v1/interface/seller/list'
     CONFIRM = '/v3/interface/onboarding/confirm'
     COMPANY_CODES = "/v1/interface/domain-tables/company_formation_list"
@@ -27,7 +29,7 @@ module M2yAdiq
   end
 
 
-  AUTH_PATH = '/v1/interface/auth/oauth2'
+  AUTH_PATH = '/oauth2/token'
 
 
 end
