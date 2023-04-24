@@ -27,6 +27,20 @@ module M2yBecker
     GENERAL = '/api/v1/faturamentos/ciclos/'
   end
 
+  module CardsPaths
+    GENERAL = '/api/v1/cartoes/'
+    VIRTUALS = '/api/v1/cartoes/virtuais/'
+    ORIGINAL_PATH = "titular"
+    PASSWORD_PATH = "/senha"
+    CVV_PATH = "/cvv"
+    DEACTIVATE_CVV = "/cvv/inativacao"
+    ACTIVATE_CVV = "/cvv/ativacao"
+    AUTH_PASSWORD_PATH = "/senha/autenticacao"
+    SMS_PASSWORD_PATH = "/senha/sms"
+    BLOCK_PATH = "/bloqueio/temporario"
+    UNLOCK_PATH = "/desbloqueio"
+  end
+
   module UserPaths
     GENERAL = '/api/v1/portadores/'
     HISTORY_PATH = '/historico'

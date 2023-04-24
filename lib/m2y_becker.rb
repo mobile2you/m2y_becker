@@ -11,6 +11,7 @@ require 'm2y_becker/modules/cdt_cycle'
 require 'm2y_becker/modules/cdt_group'
 require 'm2y_becker/modules/cdt_event'
 require 'm2y_becker/modules/cdt_user'
+require 'm2y_becker/modules/cdt_card'
 
 require_relative "m2y_becker/version"
 
