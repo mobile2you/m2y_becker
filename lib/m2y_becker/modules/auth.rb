@@ -15,12 +15,11 @@ module M2yBecker
 
       request = Net::HTTP::Post.new(url)
       request["Content-Type"] = "application/x-www-form-urlencoded"
-      request["Authorization"] = "Basic #{M2yBecker.configuration.auth}"
+      header =  "Basic #{M2yBecker.configuration.auth}".gsub(/\n/, '')
+      puts header
+      request["Authorization"] = header
 
-      request.body = JSON.dump({
-                                 "username": M2yBecker.configuration.username,
-                                 "password": M2yBecker.configuration.password
-      })
+      request.body = "grant_type=password&username=#{M2yBecker.configuration.username}&password=#{M2yBecker.configuration.password}"
 
       response = https.request(request)
       puts response.read_body

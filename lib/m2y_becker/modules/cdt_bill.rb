@@ -1,41 +1,82 @@
-module M2yAdiq
-  class Onboarding < Base
+module M2yBecker
+  class CdtBill < Base
 
     def findCurrentBill(id)
-      response = get(M2yAdiq.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CURRENT)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CURRENT)
       CdtModel.new(response)
     end
 
-    # def findCurrentBill(id)
-    #   response = @request.get(@url + USERS_PATH + id.to_s + CURRENT_BILL_PATH)
-    #   CdtModel.new(response)
-    # end
-
-    # def self.store_list
-    #   response = post(M2yAdiq.configuration.main_url + OnboardingPaths::STORE_LIST, {})
-    #   response.parsed_response
-    # end
+    def findCloseBill(id)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CLOSE_BILL_PATH)
+      CdtModel.new(response)
+    end
 
 
-    # def self.register(body)
-    #   response = post(M2yAdiq.configuration.main_url + OnboardingPaths::REGISTER, body)
-    #   response.parsed_response
-    # end
+    def findPeriodBill(id, start_date, end_date)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::PERIOD_BILL_PATH + "?dataInicial=#{start_date}&" + "dataFinal=#{end_date}")
+      puts response
+      CdtModel.new(response)
+    end
 
-    # def self.confirm_register(body)
-    #   response = post(M2yAdiq.configuration.main_url + OnboardingPaths::CONFIRM, body)
-    #   response.parsed_response
-    # end
+    def findDetailBill(id, id_bill)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::DETAILS_BILL_PATH + "?idFatura=#{id_bill}")
+      puts response
 
-    # def self.company_codes
-    #   response = get(M2yAdiq.configuration.main_url + OnboardingPaths::COMPANY_CODES)
-    #   response.parsed_response
-    # end
+      CdtModel.new(response)
+    end
 
-    # def self.legal_nature_codes
-    #   response = get(M2yAdiq.configuration.main_url + OnboardingPaths::LEGAL_NATURE_CODES)
-    #   response.parsed_response
-    # end
+    def acceptBillEmail(id, email)
+      body = { :email => email }
+      headers = base_headers
+      headers["Content-Length"] = "0"
+      response = post(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::DIGITAL_BILL_PATH, body, headers)
+      if response.body.nil? || response.body.empty?
+        response = {}
+      end
+      CdtModel.new(response)
+    end
+
+    def cancelBillEmail(id, email)
+      body = { :email => email }
+      headers = base_headers
+      headers["Content-Length"] = "0"
+      response = post(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CANCEL_DIGITAL_BILL_PATH, body, headers)
+      if response.body.nil? || response.body.empty?
+        response = {}
+      end
+      CdtModel.new(response)
+    end
+
+
+    def acceptBillSms(id, id_phone)
+      body = { :idCelular => id_phone }
+      response = patch(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::SMS_BILL_PATH, body, base_headers)
+      if response.body.nil? || response.body.empty?
+        response = {}
+      end
+      CdtModel.new(response)
+    end
+
+    def cancelBillSms(id, id_phone)
+      body = { :idCelular => id_phone }
+      response = patch(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CANCEL_SMS_BILL_PATH, body, base_headers)
+      if response.body.nil? || response.body.empty?
+        response = {}
+      end
+      CdtModel.new(response)
+    end
+
+    def futureBill(id)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::FUTURE_BILL_PATH)
+      CdtModel.new(response)
+    end
+
+    def installmentInfo(id)
+      response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::PARCELING_INFO_PATH)
+      CdtModel.new(response)
+    end
+
+
 
   end
 end

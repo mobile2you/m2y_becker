@@ -5,7 +5,9 @@ require 'm2y_becker/constants/constants'
 require 'm2y_becker/modules/base'
 require 'm2y_becker/models/cdt_models'
 require 'm2y_becker/helpers/token_helper'
+require 'm2y_becker/modules/auth'
 require 'm2y_becker/modules/cdt_bill'
+
 require_relative "m2y_becker/version"
 
 module M2yBecker
