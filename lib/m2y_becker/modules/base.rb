@@ -39,6 +39,20 @@ module M2yBecker
       response
     end
 
+    def put(url, body, headers = nil)
+      check_token
+      headers = base_headers if headers.nil?
+      puts "Sending PUT request to URL: #{url}"
+      begin
+        # response = HTTParty.post(url, headers: headers, body: body.to_json, debug_output: $stdout)
+        response = HTTParty.patch(url, headers: headers, body: body.to_json)
+      rescue Timeout::Error
+        return timeout_response
+      end
+      puts response
+      response
+    end
+
 
     def get(url)
       check_token
