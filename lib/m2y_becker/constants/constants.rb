@@ -30,6 +30,9 @@ module M2yBecker
   module UserPaths
     GENERAL = '/api/v1/portadores/'
     HISTORY_PATH = '/historico'
+    INFO_PATH = "/informacoes"
+    PHONES_PATH = "/telefones"
+    CPF_PATH = "simplificado/cpf"
   end
 
 

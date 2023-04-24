@@ -3,6 +3,9 @@ module M2yBecker
   class Base
 
 
+    def initialize(env = nil, user = nil, pass = nil)
+    end
+
     def check_token
       if TokenHelper.should_refresh_token?
         token = Auth.new

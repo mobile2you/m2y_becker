@@ -10,6 +10,7 @@ require 'm2y_becker/modules/cdt_bill'
 require 'm2y_becker/modules/cdt_cycle'
 require 'm2y_becker/modules/cdt_group'
 require 'm2y_becker/modules/cdt_event'
+require 'm2y_becker/modules/cdt_user'
 
 require_relative "m2y_becker/version"
 
