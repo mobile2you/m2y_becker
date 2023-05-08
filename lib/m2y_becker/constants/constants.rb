@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# https://documentacao.rpe.tech/docs/horizon/efdc4a98a5a87-gerar-senha-e-enviar-por-sms
 
 module M2yBecker
 
@@ -19,6 +20,14 @@ module M2yBecker
   end
 
 
+  module BilletPaths
+    GENERAL = '/api/v1/faturamentos/faturas/'
+    BANK_GENERAL = '/api/v1/servicos-bancarios/fatura/'
+    BILLETS = '/boletos'
+    PDF = '/pdf'
+  end
+
+
   module CyclesPaths
     GENERAL = '/api/v1/faturamentos/ciclos/'
   end
@@ -36,7 +45,7 @@ module M2yBecker
     DEACTIVATE_CVV = "/cvv/inativacao"
     ACTIVATE_CVV = "/cvv/ativacao"
     AUTH_PASSWORD_PATH = "/senha/autenticacao"
-    SMS_PASSWORD_PATH = "/senha/sms"
+    SMS_PASSWORD_PATH = "/senhas/sms"
     BLOCK_PATH = "/bloqueio/temporario"
     UNLOCK_PATH = "/desbloqueio"
   end

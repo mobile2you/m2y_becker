@@ -49,7 +49,7 @@ module M2yBecker
     def checkCardPassword(id_cartao, senha)
       headers = base_headers
       headers["senha"] = senha 
-      response = put(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::AUTH_PASSWORD_PATH + "?autenticarCartaoBloqueado=true", {}, headers)
+      response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::AUTH_PASSWORD_PATH + "?autenticarCartaoBloqueado=true", {}, headers)
       CdtModel.new(response)
     end
 
@@ -64,7 +64,7 @@ module M2yBecker
 
 
     def generateVirtualCvv(id_cartao)
-      response = post(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::CVV, {})
+      response = post(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::CVV_PATH, {})
       CdtModel.new(response)
     end
 
@@ -86,7 +86,7 @@ module M2yBecker
 
 
     def send_temporary_password(id)
-      response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::SMS_PASSWORD_PATH, {}, headers)
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s + CardsPaths::SMS_PASSWORD_PATH, {})
       CdtModel.new(response)
     end
 

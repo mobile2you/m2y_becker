@@ -34,7 +34,7 @@ module M2yBecker
       puts "Sending PATCH request to URL: #{url}"
       begin
         # response = HTTParty.post(url, headers: headers, body: body.to_json, debug_output: $stdout)
-        response = HTTParty.patch(url, headers: headers, query: body)
+        response = HTTParty.patch(url, headers: headers, query: body, body: body.to_json)
       rescue Timeout::Error
         return timeout_response
       end
