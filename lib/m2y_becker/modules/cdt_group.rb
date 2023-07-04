@@ -1,9 +1,8 @@
 module M2yBecker
-
-  class CdtGroup < CdtModule
+  class CdtGroup < Base
 
     def findGroups
-      response = @request.get(@url + GROUPS_PATH)
+      response = get(M2yBecker.configuration.main_url + GroupsPaths::GENERAL)
       CdtModel.new(response)
     end
 

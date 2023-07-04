@@ -1,23 +1,29 @@
 module M2yBecker
-  class CdtBillet < CdtModule
+  class CdtBillet <  Base
+
     def findBillet(id_bill, id_bank_account)
-      response = @request.get(@url + BILLET_PATH + "#{id_bill}/ficha-compensacao?idContaBancaria=#{id_bank_account}")
+      response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
       CdtModel.new(response)
     end
 
     def registerBillet(id_bill, id_bank_account)
-      body = { :id_bank_account => id_bank_account }
-      response = @request.post(@url + BILLET_PATH + "#{id_bill}/registrar?idContaBancaria=#{body[:id_bank_account]}", body)
+      body = {}
+      headers = base_headers
+      headers["Content-Length"] = "0"
+      response = post(M2yBecker.configuration.main_url + BilletPaths::BANK_GENERAL + id_bill.to_s + BilletPaths::BILLETS + "?idContaBancaria=#{id_bank_account}", body, headers)
       CdtModel.new(response)
     end
 
     def digitableLine(id_bill, id_bank_account)
-      response = @request.get(@url + BILLET_PATH + "#{id_bill}/documento-pagamento?idContaBancaria=#{id_bank_account}")
+      body = {}
+      headers = base_headers
+      headers["Content-Length"] = "0"
+      response = post(M2yBecker.configuration.main_url + BilletPaths::BANK_GENERAL + id_bill.to_s + BilletPaths::BILLETS+ "?idContaBancaria=#{id_bank_account}", body, headers)
       CdtModel.new(response)
     end
 
     def findBillPDF(id_bill)
-      response = @request.get(@url + API + PDF_BILL_PATH + id_bill.to_s)
+      response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
       CdtModel.new(response)
     end
   end

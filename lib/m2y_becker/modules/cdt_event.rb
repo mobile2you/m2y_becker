@@ -1,12 +1,10 @@
 module M2yBecker
-
-  class CdtEvent < CdtModule
+  class CdtEvent < Base
 
     def findEvents(id, start_date, end_date)
-      url = @url + USERS_PATH + id.to_s + HISTORY_PATH + "?dataInicial=#{start_date}&dataFinal=#{end_date}"
-      response = @request.get(url)
+      response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::HISTORY_PATH + "?dataInicial=#{start_date}&" + "dataFinal=#{end_date}")
+      puts response
       CdtModel.new(response)
     end
-
   end
 end

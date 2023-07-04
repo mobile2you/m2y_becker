@@ -1,14 +1,20 @@
 module M2yBecker
-  class CdtCycle < CdtModule
-    def findCycle()
-      response = @request.get(@url + CYCLE_PATH, body)
+  class CdtCycle < Base
+
+    def changeCycle(idPortador, idCiclo)
+      body = { :idPortador => idPortador, idCiclo: idCiclo  }
+      response = put(M2yBecker.configuration.main_url + CyclesPaths::GENERAL, body, base_headers)
+      if response.body.nil? || response.body.empty?
+        response = {}
+      end
       CdtModel.new(response)
     end
 
-    def changeCycle(idCartao, idCiclo)
-      body = { :idciclovencimento => idCiclo }
-      response = @request.patch(@url + USERS_PATH + idCartao.to_s + CHANGECYCLE_PATH + idCiclo.to_s, body)
+
+    def findCycle
+      response = get(M2yBecker.configuration.main_url + CyclesPaths::GENERAL)
       CdtModel.new(response)
     end
+
   end
 end

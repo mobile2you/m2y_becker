@@ -1,36 +1,42 @@
 module M2yBecker
-  class CdtUser < CdtModule
+  class CdtUser < Base
+
+
     def findUser(id)
-      url = @url + CUSTOMER_ID_PATH + id.to_s
-      response = @request.get(url)
+      response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s)
       CdtModel.new(response)
     end
 
     def findInformation(id)
-      response = @request.get(@url + USERS_PATH + "#{id}/informacoes")
-      CdtModel.new(response)
-    end
-
-    def findUserCpf(cpf_user)
-      response = @request.get(@url + QUERY_CPF_PATH + "cpf=#{cpf_user}")
-      CdtModel.new(response)
-    end
-
-    def changeUser(id, body)
-      response = @request.patch(@url + USERS_PATH + id.to_s, body)
+      response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::INFO_PATH)
       CdtModel.new(response)
     end
 
     def findPhone(id)
-      @request.get(@url + USERS_PATH + "#{id}/telefones/")
+      response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::PHONES_PATH)
+      CdtModel.new(response)
     end
 
-    def recieveSms(id, phone_id)
-      @request.patch(@url + USERS_PATH + "#{id}/telefones/recebe-sms?idCelular=#{phone_id}")
+
+    def findUserCpf(cpf_user)
+      response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + UserPaths::CPF_PATH + "?cpf=#{cpf_user}")
+      puts response
+      CdtModel.new(response)
     end
 
-    def legalBlock(id)
-      @request.get(@url + LEGAL_BLOCK + "?id%20do%20portador=#{id}")
+
+    def changeUser(id, body)
+      response = patch(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s, body)
+      CdtModel.new(response)
     end
+
+
+    # def recieveSms(id, phone_id)
+    #   @request.patch(@url + USERS_PATH + "#{id}/telefones/recebe-sms?idCelular=#{phone_id}")
+    # end
+
+    # def legalBlock(id)
+    #   @request.get(@url + LEGAL_BLOCK + "?id%20do%20portador=#{id}")
+    # end
   end
 end

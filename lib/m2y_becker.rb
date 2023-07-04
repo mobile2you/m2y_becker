@@ -1,6 +1,28 @@
+# frozen_string_literal: true
+
+require 'm2y_becker/configuration/configuration'
 require 'm2y_becker/constants/constants'
-require 'm2y_becker/request/cdt_request'
-require 'm2y_becker/helpers/cdt_helper'
-require 'm2y_becker/modules/cdt_modules'
+require 'm2y_becker/modules/base'
 require 'm2y_becker/models/cdt_models'
-require 'm2y_becker/errorHandler/cdt_error_handler'
+require 'm2y_becker/helpers/token_helper'
+require 'm2y_becker/modules/auth'
+require 'm2y_becker/modules/cdt_bill'
+require 'm2y_becker/modules/cdt_cycle'
+require 'm2y_becker/modules/cdt_group'
+require 'm2y_becker/modules/cdt_event'
+require 'm2y_becker/modules/cdt_user'
+require 'm2y_becker/modules/cdt_card'
+require 'm2y_becker/modules/cdt_billet'
+
+require_relative "m2y_becker/version"
+
+module M2yBecker
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.configure
+    config = configuration
+    yield(config)
+  end
+end

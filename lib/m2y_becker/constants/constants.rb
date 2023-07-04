@@ -1,41 +1,65 @@
+# frozen_string_literal: true
+# https://documentacao.rpe.tech/docs/horizon/efdc4a98a5a87-gerar-senha-e-enviar-por-sms
+
 module M2yBecker
-  # envs
-  HOMOLOGATION = "hml".freeze
-  PRODUCTION = "prd".freeze
 
-  # urls
-  URL_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
-  URL_PRD = "https://cards-api-v3.connect.dock.tech/".freeze
+  module BillPaths
+    GENERAL = '/api/v1/faturamentos/portador/'
+    CURRENT = '/faturas/atual'
+    CLOSE_BILL_PATH = '/faturas/fechada'
+    DETAILS_BILL_PATH = '/faturas/detalhada'
+    FUTURE_BILL_PATH = '/faturas/futuras'
+    PERIOD_BILL_PATH = '/faturas/periodo'
 
-  # auth_url
-  TOKEN_HML = "https://cards-api-hml-v3.connect.dock.tech:8055/".freeze
-  TOKEN_PRD = "https://cards-api-v3.connect.dock.tech/".freeze
+    DIGITAL_BILL_PATH = '/fatura-digital'
+    CANCEL_DIGITAL_BILL_PATH = '/fatura-digital/cancelamento'
 
-  API = "api/api/".freeze
-  TOKEN_PATH = "autenticacao/tokens".freeze
-  CARD_PATH = "api/api/v3/cartoes/".freeze
-  GROUPS_PATH = "autenticacao/grupos".freeze
+    SMS_BILL_PATH = '/faturas/sms/adesao'
+    CANCEL_SMS_BILL_PATH = '/faturas/sms/cancelamento'
+    PARCELING_INFO_PATH = "/faturas/parcelamentos/pendentes"
+  end
 
-  USERS_PATH = "api/api/v3/portadores/".freeze
-  HISTORY_PATH = "/historico".freeze
-  CUSTOMER_ID_PATH = "/api/api/v3/portadores/consulta-cliente-id?id=".freeze
 
-  CURRENT_BILL_PATH = "/fatura-atual".freeze
-  CLOSE_BILL_PATH = "/fatura-fechada".freeze
-  PERIOD_BILL_PATH = "/fatura-periodo?".freeze
-  DETAIL_BILL_PATH = "/fatura-detalhada?".freeze
-  PDF_BILL_PATH = "v3/fatura-pdf/consultar/".freeze
-  FUTURE_BILL_PATH = "/lista-fatura-futura".freeze
-  PARCELING_INFO_PATH = "/consulta-parcelamento-fatura-pendentes".freeze
-  LEGAL_BLOCK = '/api/api/v3/bloqueio-cliente/listar-bloqueios'.freeze
+  module BilletPaths
+    GENERAL = '/api/v1/faturamentos/faturas/'
+    BANK_GENERAL = '/api/v1/servicos-bancarios/fatura/'
+    BILLETS = '/boletos'
+    PDF = '/pdf'
+  end
 
-  CYCLE_PATH = "/api/api/v3/ciclos".freeze
 
-  QUERY_CPF_PATH = "api/api/v3/portadores/consulta-cliente-cpf?".freeze
+  module CyclesPaths
+    GENERAL = '/api/v1/faturamentos/ciclos/'
+  end
 
-  CHANGECYCLE_PATH = "/alterar-ciclo-vencimento?idciclovencimento=".freeze
+  module GroupsPaths
+    GENERAL = '/api/v1/faturamentos/ciclos/'
+  end
 
-  PASSWORD_PATH = "/cadastrar_senha".freeze
+  module CardsPaths
+    GENERAL = '/api/v1/cartoes/'
+    VIRTUALS = '/api/v1/cartoes/virtuais/'
+    ORIGINAL_PATH = "titular"
+    PASSWORD_PATH = "/senha"
+    CVV_PATH = "/cvv"
+    DEACTIVATE_CVV = "/cvv/inativacao"
+    ACTIVATE_CVV = "/cvv/ativacao"
+    AUTH_PASSWORD_PATH = "/senha/autenticacao"
+    SMS_PASSWORD_PATH = "/senhas/sms"
+    BLOCK_PATH = "/bloqueio/temporario"
+    UNLOCK_PATH = "/desbloqueio"
+  end
 
-  BILLET_PATH = "/api/api/v3/boletos/"
+  module UserPaths
+    GENERAL = '/api/v1/portadores/'
+    HISTORY_PATH = '/historico'
+    INFO_PATH = "/informacoes"
+    PHONES_PATH = "/telefones"
+    CPF_PATH = "simplificado/cpf"
+  end
+
+
+  AUTH_PATH = '/oauth2/token'
+
+
 end

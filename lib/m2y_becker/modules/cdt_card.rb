@@ -1,31 +1,37 @@
 module M2yBecker
-  class CdtCard < CdtModule
-    def findCard(id_cartao)
-      response = @request.get(@url + CARD_PATH + "/buscar/#{id_cartao}")
+  class CdtCard < Base
+
+
+    def findCard(id)
+      response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s)
       CdtModel.new(response)
     end
 
     def findCardByClient(id)
-      response = @request.get(@url + CARD_PATH + "consultar-por-titular?idClienteTitular=#{id}")
+      response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + CardsPaths::ORIGINAL_PATH + "?idClienteTitular=#{id}")
       CdtModel.new(response)
     end
 
     def registerPasswordCard(id_cartao, senha)
-      headers = [{ :key => "senha", :value => senha }]
-      response = @request.patch(@url + CARD_PATH + id_cartao.to_s + PASSWORD_PATH, nil, headers)
+      headers = base_headers
+      headers["senha"] = senha
+      response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::PASSWORD_PATH, {}, headers)
       CdtModel.new(response)
     end
 
     def changePasswordCard(id_cartao, senha_antiga, senha_nova)
-      headers = [{ :key => "senha_antiga", :value => senha_antiga }, { :key => "senha_nova", :value => senha_nova }]
-      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha", nil, headers)
+      headers = base_headers
+      headers["senha_antiga"] = senha_antiga
+      headers["senha_nova"] = senha_nova
+      response = put(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::PASSWORD_PATH, {}, headers)
       CdtModel.new(response)
     end
+
 
     def unblockCard(id_cartao)
       body = { "observacao": "Cartao desbloqueado" }
 
-      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/desbloqueio", body)
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::UNLOCK_PATH, body)
       CdtModel.new(response)
     end
 
@@ -35,45 +41,55 @@ module M2yBecker
         "observacao": "Cartao bloqueado temporariamente",
       }
 
-      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/bloqueio", body)
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::BLOCK_PATH, body)
       CdtModel.new(response)
     end
+
 
     def checkCardPassword(id_cartao, senha)
-      headers = [{ :key => "senha", :value => senha }]
-      response = @request.postWithHeader(@url + CARD_PATH + "#{id_cartao}/autenticar?autenticarCartaoBloqueado=true", nil, headers)
+      headers = base_headers
+      headers["senha"] = senha
+      response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::AUTH_PASSWORD_PATH + "?autenticarCartaoBloqueado=true", {}, headers)
       CdtModel.new(response)
     end
 
-    def changePasswordWithoutValidation(id_cartao, senha_nova)
-      headers = [{ :key => "senha_nova", :value => senha_nova }]
-      response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
+
+    #erro
+    # def changePasswordWithoutValidation(id_cartao, senha_nova)
+    #   headers = [{ :key => "senha_nova", :value => senha_nova }]
+    #   response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
+    #   CdtModel.new(response)
+    # end
+
+
+
+    def generateVirtualCvv(id_cartao)
+      response = post(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::CVV_PATH, {})
       CdtModel.new(response)
     end
 
-    def activateVirtualCvv(id)
-      response = @request.patch(@url + CARD_PATH + "ativar-cvvVirtual-cartao/#{id}")
+    def deactivateVirtualCvv(id_cartao)
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::DEACTIVATE_CVV, {})
       CdtModel.new(response)
     end
 
-    def deactivateVirtualCvv(id)
-      response = @request.patch(@url + CARD_PATH + "inativar-cvvVirtual-cartao/#{id}")
+    def activateVirtualCvv(id_cartao)
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::ACTIVATE_CVV, {})
       CdtModel.new(response)
     end
+
 
     def getVirtualCard(id)
-      response = @request.get(@url + CARD_PATH + "buscar-cartaoVirtual/#{id}")
+      response = get(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id.to_s)
       CdtModel.new(response)
     end
 
-    def generateVirtualCvv(id)
-      response = @request.get(@url + CARD_PATH + "gerar-cvvVirtual-cartao/#{id}")
-      CdtModel.new(response)
-    end
 
     def send_temporary_password(id)
-      response = @request.patch(@url + CARD_PATH + id +'/gerar-senha-enviaSms' )
+      response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s + CardsPaths::SMS_PASSWORD_PATH, {})
       CdtModel.new(response)
     end
+
+
   end
 end
