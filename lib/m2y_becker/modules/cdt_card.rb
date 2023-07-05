@@ -1,7 +1,5 @@
 module M2yBecker
   class CdtCard < Base
-
-
     def findCard(id)
       response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s)
       CdtModel.new(response)
@@ -27,7 +25,6 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-
     def unblockCard(id_cartao)
       body = { "observacao": "Cartao desbloqueado" }
 
@@ -45,7 +42,6 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-
     def checkCardPassword(id_cartao, senha)
       headers = base_headers
       headers["senha"] = senha
@@ -53,15 +49,12 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-
     #erro
     # def changePasswordWithoutValidation(id_cartao, senha_nova)
     #   headers = [{ :key => "senha_nova", :value => senha_nova }]
     #   response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
     #   CdtModel.new(response)
     # end
-
-
 
     def generateVirtualCvv(id_cartao)
       response = post(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::CVV_PATH, {})
@@ -78,18 +71,14 @@ module M2yBecker
       CdtModel.new(response)
     end
 
-
     def getVirtualCard(id)
       response = get(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id.to_s)
       CdtModel.new(response)
     end
 
-
     def send_temporary_password(id)
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s + CardsPaths::SMS_PASSWORD_PATH, {})
       CdtModel.new(response)
     end
-
-
   end
 end

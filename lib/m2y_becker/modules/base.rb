@@ -1,17 +1,14 @@
 module M2yBecker
   require 'httparty'
   class Base
-
-
-    def initialize(env = nil, user = nil, pass = nil)
-    end
+    def initialize(env = nil, user = nil, pass = nil); end
 
     def check_token
-      if TokenHelper.should_refresh_token?
-        token = Auth.new
-      end
+      # if TokenHelper.should_refresh_token?
+      #   token = Auth.new
+      # end
+      Auth.new if TokenHelper.should_refresh_token?
     end
-
 
     def post(url, body, headers = nil)
       check_token
@@ -20,11 +17,9 @@ module M2yBecker
       puts body
       begin
         response = HTTParty.post(url, headers: headers, body: body.to_json)
-        # response = HTTParty.post(url, headers: headers, body: body.to_json)
       rescue Timeout::Error
         return timeout_response
       end
-      puts response
       response
     end
 
@@ -33,12 +28,10 @@ module M2yBecker
       headers = base_headers if headers.nil?
       puts "Sending PATCH request to URL: #{url}"
       begin
-        # response = HTTParty.post(url, headers: headers, body: body.to_json, debug_output: $stdout)
         response = HTTParty.patch(url, headers: headers, query: body, body: body.to_json)
       rescue Timeout::Error
         return timeout_response
       end
-      puts response
       response
     end
 
@@ -47,15 +40,12 @@ module M2yBecker
       headers = base_headers if headers.nil?
       puts "Sending PUT request to URL: #{url}"
       begin
-        # response = HTTParty.post(url, headers: headers, body: body.to_json, debug_output: $stdout)
         response = HTTParty.patch(url, headers: headers, body: body.to_json)
       rescue Timeout::Error
         return timeout_response
       end
-      puts response
       response
     end
-
 
     def get(url)
       check_token
@@ -65,7 +55,6 @@ module M2yBecker
       rescue Timeout::Error
         return timeout_response
       end
-      puts response
       response
     end
 
@@ -77,7 +66,6 @@ module M2yBecker
         "Authorization":  "Bearer #{TokenHelper.token}",
       }
     end
-
 
     def auth_headers
       {
@@ -91,8 +79,5 @@ module M2yBecker
         message: 'Houve um erro inesperado, tente novamente mais tarde'
       }
     end
-
-
-
   end
 end

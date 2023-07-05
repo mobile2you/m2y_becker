@@ -1,7 +1,5 @@
 module M2yBecker
-
   class CdtAuth
-
     def initialize(user, pass, env)
       @user = user
       @pass = pass
@@ -25,6 +23,5 @@ module M2yBecker
       CdtHelper.saveToken(@user, token.access_token)
       CdtHelper.generate_general_response(token)
     end
-
   end
 end

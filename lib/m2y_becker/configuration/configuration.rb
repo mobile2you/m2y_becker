@@ -24,6 +24,5 @@ module M2yBecker
     def main_url
       @main_url
     end
-
   end
 end

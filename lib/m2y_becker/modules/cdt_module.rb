@@ -1,7 +1,5 @@
 module M2yBecker
-
   class CdtModule
-
     def initialize(user, pass, env)
       @auth = CdtAuth.new(user, pass, env)
       @user = user
@@ -26,5 +24,4 @@ module M2yBecker
       {:key => 'Content-Type', :value => "application/json"}
     end
   end
-
 end
