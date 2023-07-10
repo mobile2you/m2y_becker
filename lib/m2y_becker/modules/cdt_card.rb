@@ -7,7 +7,8 @@ module M2yBecker
 
     def findCardByClient(id)
       response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + CardsPaths::ORIGINAL_PATH + "?idClienteTitular=#{id}")
-      CdtModel.new(response)
+      parsed_response = response.parsed_response
+      CdtModel.new(parsed_response.first)
     end
 
     def registerPasswordCard(id_cartao, senha)

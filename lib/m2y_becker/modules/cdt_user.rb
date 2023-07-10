@@ -12,7 +12,8 @@ module M2yBecker
 
     def findPhone(id)
       response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::PHONES_PATH)
-      CdtModel.new(response)
+      parsed_response = response.parsed_response
+      CdtModel.new(parsed_response.first)
     end
 
     def findUserCpf(cpf_user)
