@@ -7,8 +7,15 @@ module M2yBecker
 
     def findCardByClient(id)
       response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + CardsPaths::ORIGINAL_PATH + "?idClienteTitular=#{id}")
-      parsed_response = response.parsed_response
-      CdtModel.new(parsed_response.first)
+      status_code = response.response.code.to_i
+      if status_code.eql?(200)
+        parsed_response = response.parsed_response
+        response_hash = parsed_response.first
+        resp = response_hash.merge!('statusCode' => response.response.code.to_i)
+        CdtModel.new(resp)
+      else
+        CdtModel.new(response)
+      end
     end
 
     def registerPasswordCard(id_cartao, senha)
@@ -23,23 +30,35 @@ module M2yBecker
       headers["senha_antiga"] = senha_antiga
       headers["senha_nova"] = senha_nova
       response = put(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::PASSWORD_PATH, {}, headers)
-      CdtModel.new(response)
+      parsed_response = response.parsed_response
+      response_hash = parsed_response.nil? ? {} : parsed_response.first
+      resp = response_hash.merge!('statusCode' => response.response.code.to_i)
+      CdtModel.new(resp)
     end
 
     def unblockCard(id_cartao)
-      body = { "observacao": "Cartao desbloqueado" }
+      body = { "observacao": 'Cartao desbloqueado' }
 
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::UNLOCK_PATH, body)
-      CdtModel.new(response)
+      status_code = response.response.code.to_i
+      if status_code.eql?(200)
+        parsed_response = response.parsed_response
+        response_hash = parsed_response.nil? ? {} : parsed_response.first
+        resp = response_hash.merge!('statusCode' => response.response.code.to_i)
+        CdtModel.new(resp)
+      else
+        CdtModel.new(response)
+      end
     end
 
     def blockCard(id_cartao)
       body = {
         "idTipoBloqueio": 1,
-        "observacao": "Cartao bloqueado temporariamente",
+        "observacao": 'Cartao bloqueado temporariamente',
       }
 
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::BLOCK_PATH, body)
+      response.parsed_response.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
@@ -47,6 +66,7 @@ module M2yBecker
       headers = base_headers
       headers["senha"] = senha
       response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::AUTH_PASSWORD_PATH + "?autenticarCartaoBloqueado=true", {}, headers)
+      response.parsed_response.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 

@@ -7,6 +7,7 @@ module M2yBecker
 
     def findInformation(id)
       response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::INFO_PATH)
+      response.parsed_response.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
