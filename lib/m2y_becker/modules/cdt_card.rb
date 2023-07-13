@@ -22,6 +22,7 @@ module M2yBecker
       headers = base_headers
       headers["senha"] = senha
       response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::PASSWORD_PATH, {}, headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
@@ -30,10 +31,8 @@ module M2yBecker
       headers["senha_antiga"] = senha_antiga
       headers["senha_nova"] = senha_nova
       response = put(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::PASSWORD_PATH, {}, headers)
-      parsed_response = response.parsed_response
-      response_hash = parsed_response.nil? ? {} : parsed_response.first
-      resp = response_hash.merge!('statusCode' => response.response.code.to_i)
-      CdtModel.new(resp)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
+      CdtModel.new(response)
     end
 
     def unblockCard(id_cartao)
@@ -58,7 +57,7 @@ module M2yBecker
       }
 
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::BLOCK_PATH, body)
-      response.parsed_response.merge!('statusCode' => response.response.code.to_i)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
@@ -66,39 +65,37 @@ module M2yBecker
       headers = base_headers
       headers["senha"] = senha
       response = post(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::AUTH_PASSWORD_PATH + "?autenticarCartaoBloqueado=true", {}, headers)
-      response.parsed_response.merge!('statusCode' => response.response.code.to_i)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
-    #erro
-    # def changePasswordWithoutValidation(id_cartao, senha_nova)
-    #   headers = [{ :key => "senha_nova", :value => senha_nova }]
-    #   response = @request.patch(@url + CARD_PATH + "#{id_cartao}/alterar-senha-sem-validacao", nil, headers)
-    #   CdtModel.new(response)
-    # end
-
     def generateVirtualCvv(id_cartao)
       response = post(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::CVV_PATH, {})
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
     def deactivateVirtualCvv(id_cartao)
       response = patch(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::DEACTIVATE_CVV, {})
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
     def activateVirtualCvv(id_cartao)
       response = patch(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id_cartao.to_s + CardsPaths::ACTIVATE_CVV, {})
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
     def getVirtualCard(id)
       response = get(M2yBecker.configuration.main_url + CardsPaths::VIRTUALS + id.to_s)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
     def send_temporary_password(id)
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id.to_s + CardsPaths::SMS_PASSWORD_PATH, {})
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
   end

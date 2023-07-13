@@ -37,7 +37,7 @@ module M2yBecker
       headers = base_headers if headers.nil?
       puts "Sending PUT request to URL: #{url}"
       begin
-        response = HTTParty.patch(url, headers: headers, body: body.to_json)
+        response = HTTParty.put(url, headers: headers, body: body.to_json)
       rescue Timeout::Error
         return timeout_response
       end

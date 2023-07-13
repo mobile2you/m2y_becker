@@ -56,6 +56,8 @@ module M2yBecker
     INFO_PATH = "/informacoes"
     PHONES_PATH = "/telefones"
     CPF_PATH = "simplificado/cpf"
+    SMS_PATH = "/api/v1/pacotes-sms/portador/"
+    PHONE_PATH = "/telefones/sms/adesao"
   end
 
 
