@@ -30,8 +30,9 @@ module M2yBecker
       headers = base_headers
       headers["Content-Length"] = "0"
       response = post(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::DIGITAL_BILL_PATH, body, headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       if response.body.nil? || response.body.empty?
-        response = {}
+        response = { 'statusCode' => response.response.code.to_i }
       end
       CdtModel.new(response)
     end
@@ -41,8 +42,9 @@ module M2yBecker
       headers = base_headers
       headers["Content-Length"] = "0"
       response = post(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CANCEL_DIGITAL_BILL_PATH, body, headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       if response.body.nil? || response.body.empty?
-        response = {}
+        response = { 'statusCode' => response.response.code.to_i }
       end
       CdtModel.new(response)
     end
@@ -50,8 +52,9 @@ module M2yBecker
     def acceptBillSms(id, id_phone)
       body = { :idCelular => id_phone }
       response = patch(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::SMS_BILL_PATH, body, base_headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       if response.body.nil? || response.body.empty?
-        response = {}
+        response = { 'statusCode' => response.response.code.to_i }
       end
       CdtModel.new(response)
     end
@@ -59,8 +62,9 @@ module M2yBecker
     def cancelBillSms(id, id_phone)
       body = { :idCelular => id_phone }
       response = patch(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::CANCEL_SMS_BILL_PATH, body, base_headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       if response.body.nil? || response.body.empty?
-        response = {}
+        response = { 'statusCode' => response.response.code.to_i }
       end
       CdtModel.new(response)
     end
@@ -73,6 +77,7 @@ module M2yBecker
 
     def installmentInfo(id)
       response = get(M2yBecker.configuration.main_url + BillPaths::GENERAL + id.to_s + BillPaths::PARCELING_INFO_PATH)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
   end

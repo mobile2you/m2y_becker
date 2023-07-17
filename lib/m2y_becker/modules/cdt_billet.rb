@@ -3,6 +3,7 @@ module M2yBecker
 
     def findBillet(id_bill, id_bank_account)
       response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
@@ -11,6 +12,7 @@ module M2yBecker
       headers = base_headers
       headers["Content-Length"] = "0"
       response = post(M2yBecker.configuration.main_url + BilletPaths::BANK_GENERAL + id_bill.to_s + BilletPaths::BILLETS + "?idContaBancaria=#{id_bank_account}", body, headers)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
@@ -24,6 +26,7 @@ module M2yBecker
 
     def findBillPDF(id_bill)
       response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
   end

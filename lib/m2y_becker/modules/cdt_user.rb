@@ -2,6 +2,7 @@ module M2yBecker
   class CdtUser < Base
     def findUser(id)
       response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s)
+      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
       CdtModel.new(response)
     end
 
