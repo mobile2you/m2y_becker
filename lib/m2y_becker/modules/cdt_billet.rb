@@ -3,8 +3,11 @@ module M2yBecker
 
     def findBillet(id_bill, id_bank_account)
       response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
-      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
-      CdtModel.new(response)
+      resp = {}
+      pdf_io = StringIO.new(response.body)
+      resp.merge!('pdfFile' => pdf_io)
+      resp.merge!('statusCode' => response.response.code.to_i)
+      CdtModel.new(resp)
     end
 
     def registerBillet(id_bill, id_bank_account)
@@ -26,8 +29,11 @@ module M2yBecker
 
     def findBillPDF(id_bill)
       response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
-      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
-      CdtModel.new(response)
+      resp = {}
+      pdf_io = StringIO.new(response.body)
+      resp.merge!('pdfFile' => pdf_io)
+      resp.merge!('statusCode' => response.response.code.to_i)
+      CdtModel.new(resp)
     end
   end
 end
