@@ -25,6 +25,7 @@ module M2yBecker
     BANK_GENERAL = '/api/v1/servicos-bancarios/fatura/'
     BILLETS = '/boletos'
     PDF = '/pdf'
+    COMPENSATION = '/ficha-compensacao'
   end
 
 

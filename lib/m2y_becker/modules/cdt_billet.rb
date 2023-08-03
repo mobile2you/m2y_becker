@@ -2,7 +2,7 @@ module M2yBecker
   class CdtBillet <  Base
 
     def findBillet(id_bill, id_bank_account)
-      response = get(M2yBecker.configuration.main_url + BilletPaths::GENERAL + id_bill.to_s + BilletPaths::PDF)
+      response = get(M2yBecker.configuration.main_url + BilletPaths::BANK_GENERAL + id_bill.to_s + BilletPaths::BILLETS + BilletPaths::COMPENSATION + "?idContaBancaria=#{id_bank_account}")
       resp = {}
       pdf_io = StringIO.new(response.body)
       resp.merge!('pdfFile' => pdf_io)
