@@ -18,6 +18,20 @@ module M2yBecker
       end
     end
 
+    def findCardByCpf(cpf)
+      response = get(M2yBecker.configuration.main_url + CardsPaths::GENERAL + 'cpf' + "/#{cpf}")
+      status_code = response.response.code.to_i
+      
+      if status_code.eql?(200)
+        parsed_response = response.parsed_response
+        response_hash = parsed_response.first
+        resp = response_hash.merge!('statusCode' => response.response.code.to_i)
+        CdtModel.new(resp)
+      else
+        CdtModel.new(response)
+      end
+    end
+
     def registerPasswordCard(id_cartao, senha)
       headers = base_headers
       headers["senha"] = senha
