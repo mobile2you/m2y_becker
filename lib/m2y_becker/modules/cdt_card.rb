@@ -24,7 +24,7 @@ module M2yBecker
       
       if status_code.eql?(200)
         parsed_response = response.parsed_response
-        response_hash = parsed_response.first
+        response_hash = parsed_response.select { |card| card["statusCartao"].eql? 'A' }.first
         resp = response_hash.merge!('statusCode' => response.response.code.to_i)
         CdtModel.new(resp)
       else
