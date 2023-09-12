@@ -14,8 +14,9 @@ module M2yBecker
 
     def findPhone(id)
       response = get(M2yBecker.configuration.main_url + UserPaths::GENERAL + id.to_s + UserPaths::PHONES_PATH)
-      parsed_response = response.parsed_response
-      CdtModel.new(parsed_response.first)
+      parsed_response = response.parsed_response.select { |phone| phone["tipo"].eql? 'CELULAR' }.first
+      raise "A mobile phone number could not be found" unless parsed_response.present?
+      CdtModel.new(parsed_response)
     end
 
     def findUserCpf(cpf_user)
