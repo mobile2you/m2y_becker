@@ -66,7 +66,7 @@ module M2yBecker
 
     def blockCard(id_cartao)
       body = {
-        "idTipoBloqueio": 1,
+        "idTipoBloqueio": 2,
         "observacao": 'Cartao bloqueado temporariamente',
       }
 
