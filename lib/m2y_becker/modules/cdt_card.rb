@@ -71,8 +71,9 @@ module M2yBecker
       }
 
       response = patch(M2yBecker.configuration.main_url + CardsPaths::GENERAL + id_cartao.to_s + CardsPaths::BLOCK_PATH, body)
-      response.parsed_response&.merge!('statusCode' => response.response.code.to_i)
-      CdtModel.new(response)
+      response_map = response.parsed_response.nil? ? {} : response.parsed_response
+      response_map.merge!('statusCode' => response.response.code.to_i)
+      CdtModel.new(response_map)
     end
 
     def checkCardPassword(id_cartao, senha)
